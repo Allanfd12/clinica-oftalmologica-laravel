@@ -18,10 +18,8 @@ return new class extends Migration
             $table->string('biomicoscopia', 255);
             $table->string('conduta', 255);
             $table->string('grau', 255);
-            $table->bigInteger('paciente_id')->unsigned();
+            $table->foreignId('paciente_id')->constrained('pacientes');
             $table->timestamps();
-
-            $table->foreign('paciente_id')->references('id')->on('pacientes');
         });
     }
 

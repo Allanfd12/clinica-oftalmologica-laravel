@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('medicos', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('users_id')->unsigned();
+            $table->foreignId('users_id')->constrained('users');
             $table->string('crm', 20);
             $table->string('especialidade', 100);
             $table->timestamps();
 
-            $table->foreign('users_id')->references('id')->on('users');
+            
         });
     }
 

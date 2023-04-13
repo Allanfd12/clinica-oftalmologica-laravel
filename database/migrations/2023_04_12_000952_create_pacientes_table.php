@@ -13,10 +13,8 @@ return new class extends Migration
     {
         Schema::create('pacientes', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('pessoa_id')->unsigned();
+            $table->foreignId('pessoa_id')->constrained('pessoas');
             $table->timestamps();
-
-            $table->foreign('pessoa_id')->references('id')->on('pessoas');
         });
     }
 
