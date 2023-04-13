@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Consulta>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Receita>
  */
-class ConsultaFactory extends Factory
+class ReceitaFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -16,11 +16,13 @@ class ConsultaFactory extends Factory
      */
     public function definition(): array
     {
+
         return [
-            'data_consulta' => $this->faker->date(),
-            'hora_consulta' => $this->faker->time(),
-            'medico_id' => \App\Models\Medico::factory(),
             'paciente_id' => \App\Models\Paciente::factory(),
+            'medico_id' => \App\Models\Medico::factory(),
+            'observacao' => $this->faker->text(),
+            'data' => $this->faker->date(),
+            'hora' => $this->faker->time(),
         ];
     }
 }
