@@ -17,24 +17,14 @@ class EnderecoFactory extends Factory
      */
     public function definition(): array
     {
-
-        $endereco_rua = $this->faker->streetName;
-        $endereco_numero = $this->faker->buildingNumber;
-        $endereco_bairro = $this->faker->citySuffix;
-        $endereco_cidade = $this->faker->city;
-        $endereco_estado = $this->faker->city;
-        $endereco_cep = $this->faker->postcode;
-        $endereco_complemento = $this->faker->secondaryAddress;
-
-
         return [
-            'rua' => $endereco_rua,
-            'numero' => $endereco_numero,
-            'bairro' => $endereco_bairro,
-            'cidade' => $endereco_cidade,
-            'estado' => $endereco_estado,
-            'cep' => $endereco_cep,
-            'complemento' => $endereco_complemento,
+            'rua' =>  $this->faker->streetName,
+            'numero' => $this->faker->buildingNumber,
+            'bairro' => $this->faker->citySuffix,
+            'cidade' => $this->faker->city,
+            'estado' => $this->faker->city,
+            'cep' => $this->faker->postcode,
+            'complemento' => $this->faker->secondaryAddress,
         ];
     }
 }
