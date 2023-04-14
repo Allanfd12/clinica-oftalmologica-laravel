@@ -9,13 +9,4 @@ class Receita extends Model
 {
     use HasFactory;
 
-    protected $table = 'receitas';
-
-    protected $fillable = [
-        'paciente_id',
-        'medico_id',
-        'observacao',
-        'data',
-        'hora',
-    ];
 }

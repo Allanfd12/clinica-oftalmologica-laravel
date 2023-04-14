@@ -9,12 +9,4 @@ class Consulta extends Model
 {
     use HasFactory;
 
-    protected $table = 'consultas';
-
-    protected $fillable = [
-        'data_consulta',
-        'hora_consulta',
-        'medico_id',
-        'paciente_id',
-    ];
 }

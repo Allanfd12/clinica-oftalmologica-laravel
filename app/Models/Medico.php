@@ -9,12 +9,5 @@ class Medico extends Model
 {
     use HasFactory;
 
-    protected $table = 'medicos';
-
-    protected $fillable = [
-        'crm',
-        'especialidade',
-        'users_id',
-    ];
     
 }
