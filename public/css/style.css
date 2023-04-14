@@ -1,0 +1,43 @@
+body {
+    background: white;
+    font-size: large;
+}
+
+input.form-control{ width: 800px!important; }
+
+#side_nav {
+    background: #20B2AA;
+    min-width: 180px;
+    max-width: 180px;
+}
+.navbar-cima {
+    min-height: 100vh;
+    width: 100%;
+}
+
+hr.h-color {
+    background: white;
+}
+
+.sidebar li.active {
+    background: white;
+    border-radius: 10px;
+}
+
+.sidebar li.active a, .sidebar li.active a:hover {
+    color: black;
+}
+
+.sidebar li a {
+    color: white;
+}
+
+.logo-texto {
+    font-size: 22px;
+    color: white;
+}
+
+.icon {
+    display: inline-block;
+    vertical-align: middle;
+}
