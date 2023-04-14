@@ -1,3 +1,4 @@
+
 body {
     background: white;
     font-size: large;
@@ -38,6 +39,20 @@ hr.h-color {
 }
 
 .icon {
-    display: inline-block;
-    vertical-align: middle;
+    margin-bottom: 18px;
+}
+
+.linha-home {
+
+    color: #20B2AA;
+    background-color: #20B2AA;
+    height: 3px;
+    width: 50%;
+    margin: auto;
+    margin-top: 5%;
+}
+
+.btn-primary {
+    background-color: #20B2AA;
+    color: white;
 }

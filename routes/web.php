@@ -16,7 +16,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
+
+Route::get('/pacientes', function () {
+    return view('pacientes/list');
+})->name('pacientes.list');
+
+Route::get('/usuarios', function () {
+    return view('usuarios/list');
+})->name('usuarios.list');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
