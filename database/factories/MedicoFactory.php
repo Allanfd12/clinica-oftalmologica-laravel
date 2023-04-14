@@ -3,12 +3,11 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Paciente>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Medico>
  */
-class PacienteFactory extends Factory
+class MedicoFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,9 +16,11 @@ class PacienteFactory extends Factory
      */
     public function definition(): array
     {
-        
+
         return [
-            'pessoa_id' => \App\Models\Pessoa::factory(),
+            'users_id' => \App\Models\User::factory(),
+            'crm' => $this->faker->text(20),
+            'especialidade' => $this->faker->text(100),
         ];
     }
 }

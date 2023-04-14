@@ -17,23 +17,15 @@ class PessoaFactory extends Factory
      */
     public function definition(): array
     {
-
-        $pessoa_nome = $this->faker->name;
-        $pessoa_cpf = $this->faker->unique()->numberBetween(10000000000, 99999999999);
-        $pessoa_data_nacimento = $this->faker->date();
-        $pessoa_fucao = $this->faker->jobTitle;
-        $pessoa_email = $this->faker->unique()->safeEmail;
-        $pessoa_telefone = $this->faker->unique()->numberBetween(10000000000, 99999999999);
-        $pessoa_endereco_id = $this->faker->unique()->numberBetween(1, 100);
-
         return [
-            'nome' => $pessoa_nome,
-            'cpf' => $pessoa_cpf,
-            'data_nacimento' => $pessoa_data_nacimento,
-            'fucao' => $pessoa_fucao,
-            'email' => $pessoa_email,
-            'telefone' => $pessoa_telefone,
-            'endereco_id' => $pessoa_endereco_id,
+            'nome' => $this->faker->name,
+            'cpf' => $this->faker->unique()->numberBetween(10000000000, 99999999999),
+            'data_nacimento' => $this->faker->date(),
+            'fucao' => $this->faker->jobTitle,
+            'email' => $this->faker->unique()->safeEmail,
+            'telefone' => $this->faker->unique()->numberBetween(10000000000, 99999999999),
+            'endereco_id' => \App\Models\Endereco::factory(),
+
         ];
     }
 }

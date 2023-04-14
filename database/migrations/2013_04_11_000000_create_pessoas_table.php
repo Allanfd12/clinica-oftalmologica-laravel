@@ -20,10 +20,9 @@ return new class extends Migration
             $table->string('fucao',255);
             $table->string('email',255);
             $table->string('telefone',11);
-            $table->bigInteger('endereco_id')->unsigned()->nullable();
+            $table->foreignId('endereco_id')->constrained('enderecos');
             $table->timestamps();
 
-            $table->foreign('endereco_id')->references('id')->on('enderecos')->onDelete('cascade');
         });
     }
 
