@@ -1,5 +1,7 @@
 @extends('layouts.public')
 
+@section('title', 'Ophtamuls - Usuários')
+
 @section('content')
-    <h1>USUARIOS</h1>
+
 @endsection
