@@ -23,7 +23,7 @@
           </a>
         </div>
         <ul class="list-unstyled px-3">
-          <li><a href="{{ route('pacientes.list') }}" class="text-decoration-none d-block" style="margin-top: 12px"><span class="material-symbols-outlined">
+          <li><a href="{{ route('pacientes.list') }}" class="text-decoration-none d-block" style="margin-top: 12px"><span class="material-symbols-outlined icon">
             patient_list
             </span> Pacientes</a></li>
           <li><a href="#" class="text-decoration-none d-block"><span class="material-symbols-outlined icon">
