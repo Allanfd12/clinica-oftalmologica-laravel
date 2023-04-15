@@ -31,6 +31,7 @@ hr.h-color {
 
 .sidebar li a {
     color: white;
+    margin-bottom: 25px;
 }
 
 .logo-texto {
@@ -39,7 +40,7 @@ hr.h-color {
 }
 
 .icon {
-    margin-bottom: 25px;
+    vertical-align: top;
 }
 
 .linha-home {
