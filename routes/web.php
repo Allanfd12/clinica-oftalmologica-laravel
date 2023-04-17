@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PacienteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +19,9 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::get('/pacientes', function () {
-    return view('pacientes/list');
-})->name('pacientes.list');
+Route::get('/pacientes', [PacienteController::class, 'index'])->name('pacientes.list');
+
+//Route::get('/pacientes',PacienteController::class)->name('pacientes.list');
 
 Route::get('/usuarios', function () {
     return view('usuarios/list');
