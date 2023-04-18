@@ -16,7 +16,7 @@ class UserController extends Controller
         $users = User::from('users as u')
             ->join('pessoas as p', 'u.pessoa_id', '=', 'p.id')
             ->select('u.*', 'p.*')
-            ->paginate(15);
+            ->paginate(10);
 
             return view('usuarios.list')->with('usuarios', $users);
     }

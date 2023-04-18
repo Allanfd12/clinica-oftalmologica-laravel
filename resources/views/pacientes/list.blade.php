@@ -26,6 +26,7 @@
                         @endforeach
                     </tbody>
                 </table>
+                {{ $pacientes->onEachSide(2)->links('layouts.pagination') }}
             </div>
         </div>
 

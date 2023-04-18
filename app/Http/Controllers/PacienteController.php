@@ -17,7 +17,7 @@ class PacienteController extends Controller
     {
         $pacientes = Paciente::join('pessoas', 'pacientes.pessoa_id', '=', 'pessoas.id')
             ->select('pacientes.*', 'pessoas.*')
-            ->get();
+            ->paginate(10);
 
         return view('pacientes.list')->with('pacientes', $pacientes);
     }
