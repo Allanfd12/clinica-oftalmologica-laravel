@@ -4,7 +4,7 @@
 
 @section('content')
     <h2 style="text-align: left; margin-top: 2%; margin-left: 5%; color: #20B2AA">Usuários</h2>
-    <hr style="margin-left: 5%; margin-top: 1%; margin-bottom: 1%"class="linha-home">
+    <hr style="margin-left: 5%; margin-top: 1%; margin-bottom: 1%; width: 90%;" class="linha-home">
 
     <div class="card" style="width: 90%; margin-left: 5%">
         <div class="card-header d-flex justify-content-between align-items-center" style="background-color:#20B2AA; color: white;">
@@ -53,5 +53,9 @@
         </div>
         
     </div>
+    
+    <hr style="margin-left: 5%; margin-top: 1%; margin-bottom: 1%; width: 90%;" class="linha-home">
+    
+
     
 @endsection
