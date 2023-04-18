@@ -7,10 +7,15 @@
     <hr style="margin-left: 5%; margin-top: 1%; margin-bottom: 1%"class="linha-home">
 
     <div class="card" style="width: 90%; margin-left: 5%">
-        <h5 class="card-header d-flex justify-content-between align-items-center" style="background-color:#20B2AA; color: white;">
-            Lista de Usuários
+        <div class="card-header d-flex justify-content-between align-items-center" style="background-color:#20B2AA; color: white;">
             <a href="#" class="btn btn-light"><span class="material-symbols-outlined" style="vertical-align: bottom">add</span> Novo Usuário</a>
-        </h5>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2 " type="search" placeholder="Pesquisar" aria-label="Search">
+                <button class="btn btn-light" type="submit"><span class="material-symbols-outlined" style="vertical-align: bottom">
+                search
+                </span></button>
+            </form>
+        </div>
         <div class="card-body">
             <table class="table table-hover text-center align-middle table-sm">
                 <thead class="table-light">

@@ -4,7 +4,7 @@ body {
     font-size: large;
 }
 
-input.form-control{ width: 800px!important; }
+input.form-control{ width: 300px!important; }
 
 #side_nav {
     background: #20B2AA;

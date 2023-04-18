@@ -21,8 +21,10 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/pacientes', [PacienteController::class, 'index'])->name('pacientes.list');
-Route::get('/usuarios', [UserController::class, 'index'])->name('usuarios.list');
+Route::get('/pacientes/criar', [PacienteController::class, 'create'])->name('pacientes.criar');
 
+Route::get('/usuarios', [UserController::class, 'index'])->name('usuarios.list');
+Route::get('/usuarios/criar', [UserController::class, 'create'])->name('usuarios.criar');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

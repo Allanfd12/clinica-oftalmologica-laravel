@@ -61,12 +61,6 @@
         <nav class="navbar navbar-expand-lg" style="background-color:#20B2AA">
           <div class="container-fluid">
             <div class="collapse navbar-collapse nav-fill justify-content-center" id="navbarSupportedContent">
-              <form class="d-flex" role="search">
-                <input class="form-control me-2 " type="search" placeholder="Pesquisar" aria-label="Search">
-                <button class="btn btn-light" type="submit"><span class="material-symbols-outlined" style="vertical-align: bottom">
-                  search
-                  </span></button>
-              </form>
             </div>
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item dropdown">
