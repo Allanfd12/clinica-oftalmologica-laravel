@@ -3,8 +3,8 @@
 @section('title', 'Ophtamuls - Usuários')
 
 @section('content')
-    <h1 style="text-align: left; margin-top: 3%; margin-left: 5%; color: #20B2AA">Usuários</h1>
-    <hr style="margin-left: 5%; margin-top: 2%; margin-bottom: 3%"class="linha-home">
+    <h2 style="text-align: left; margin-top: 2%; margin-left: 5%; color: #20B2AA">Usuários</h2>
+    <hr style="margin-left: 5%; margin-top: 1%; margin-bottom: 1%"class="linha-home">
 
     <div class="card" style="width: 90%; margin-left: 5%">
         <h5 class="card-header d-flex justify-content-between align-items-center" style="background-color:#20B2AA; color: white;">
@@ -12,7 +12,7 @@
             <a href="#" class="btn btn-light"><span class="material-symbols-outlined" style="vertical-align: bottom">add</span> Novo Usuário</a>
         </h5>
         <div class="card-body">
-            <table class="table table-hover text-center align-middle">
+            <table class="table table-hover text-center align-middle table-sm">
                 <thead class="table-light">
                     <tr>
                         <th scope="col">ID</th>
