@@ -15,7 +15,10 @@ class PacienteController extends Controller
      */
     public function index()
     {
-        $pacientes = Pessoa::all();
+        $pacientes = Paciente::join('pessoas', 'pacientes.pessoa_id', '=', 'pessoas.id')
+            ->select('pacientes.*', 'pessoas.*')
+            ->get();
+
         return view('pacientes.list')->with('pacientes', $pacientes);
     }
 

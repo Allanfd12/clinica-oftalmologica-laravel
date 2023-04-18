@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PacienteController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,12 +21,8 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/pacientes', [PacienteController::class, 'index'])->name('pacientes.list');
+Route::get('/usuarios', [UserController::class, 'index'])->name('usuarios.list');
 
-//Route::get('/pacientes',PacienteController::class)->name('pacientes.list');
-
-Route::get('/usuarios', function () {
-    return view('usuarios/list');
-})->name('usuarios.list');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

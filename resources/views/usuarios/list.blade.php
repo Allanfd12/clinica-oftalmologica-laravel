@@ -17,16 +17,17 @@
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Login</th>
-                        <th scope="col">Senha</th>
+                        <th scope="col">Email</th>
                         <th scope="col">Permissões</th>
                         <th scope="col">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach($usuarios as $user)
                 <tr>
-                    <th scope="row">1</th>
-                    <td>sergio</td>
-                    <td>senha</td>
+                    <th scope="row">{{$user->id}}</th>
+                    <td>{{$user->nome}}</td>
+                    <td>{{$user->email}}</td>
                     <td>Todas</td>
                     <td>
                         <a href="#" class="link-secondary"><span class="material-symbols-outlined fs-4">edit_square</span></a>
@@ -38,38 +39,14 @@
                             </span></a>
                     </td>
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>allan</td>
-                    <td>senha</td>
-                    <td>Todas</td>
-                    <td>
-                        <a href="#" class="link-secondary"><span class="material-symbols-outlined fs-4">edit_square</span></a>
-                        <a href="#" class="link-secondary"><span class="material-symbols-outlined fs-4">
-                            visibility
-                            </span></a>
-                        <a href="#" class="link-secondary"><span class="material-symbols-outlined fs-4">
-                            delete
-                            </span></a>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>fernanda</td>
-                    <td>senha</td>
-                    <td>Todas</td>
-                    <td>
-                        <a href="#" class="link-secondary"><span class="material-symbols-outlined fs-4">edit_square</span></a>
-                        <a href="#" class="link-secondary"><span class="material-symbols-outlined fs-4">
-                            visibility
-                            </span></a>
-                        <a href="#" class="link-secondary"><span class="material-symbols-outlined fs-4">
-                            delete
-                            </span></a>
-                    </td>
-                </tr>
+                @endforeach
+                
+            
                 </tbody>
             </table>
+            {{ $usuarios->onEachSide(2)->links('layouts.pagination') }}
         </div>
+        
     </div>
+    
 @endsection
