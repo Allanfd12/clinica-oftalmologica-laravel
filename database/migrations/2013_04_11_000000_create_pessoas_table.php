@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('nome',255);
             $table->string('cpf',11)->unique();
             $table->date('data_nacimento');
-            $table->string('fucao',255);
             $table->string('email',255);
             $table->string('telefone',11);
             $table->foreignId('endereco_id')->constrained('enderecos');

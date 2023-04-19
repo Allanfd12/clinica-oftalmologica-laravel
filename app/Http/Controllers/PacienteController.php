@@ -7,7 +7,8 @@ use App\Http\Requests\StorePacienteRequest;
 use App\Http\Requests\UpdatePacienteRequest;
 use App\Models\Pessoa;
 use Illuminate\View\View;
-
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 class PacienteController extends Controller
 {
     /**
@@ -35,7 +36,39 @@ class PacienteController extends Controller
      */
     public function store(StorePacienteRequest $request)
     {
-        //
+       // dd($request->all());
+     //  dd(Carbon::parse($request->data_nacimento)->format('m/d/Y'));
+        $request->validated();
+        DB::transaction(function () use ($request) {
+
+            $endereco = new \App\Models\Endereco();
+
+
+            $endereco->rua = $request->rua;
+            $endereco->numero = $request->numero;
+            $endereco->bairro = $request->bairro;
+            $endereco->cidade = $request->cidade;
+            $endereco->estado = $request->estado;
+            $endereco->cep = $request->cep;
+            $endereco->complemento = $request->complemento;
+            $endereco->save();
+
+            $pessoa = new Pessoa();
+            $pessoa->nome = $request->nome;
+            // remove caracteres especiais
+            $pessoa->cpf = preg_replace('/[^0-9]/', '', $request->cpf);
+
+            $pessoa->data_nacimento = Carbon::parse($request->data_nacimento)->format('Y-m-d');;
+            $pessoa->email = $request->email;
+            $pessoa->telefone = $request->telefone;
+            $pessoa->endereco_id = $endereco->id;
+            $pessoa->save();
+
+            $paciente = new Paciente();
+            $paciente->pessoa_id = $pessoa->id;
+            $paciente->save();
+        });
+        return redirect()->route('pacientes.list');
     }
 
     /**

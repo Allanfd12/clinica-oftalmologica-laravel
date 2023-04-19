@@ -21,7 +21,6 @@ class PessoaFactory extends Factory
             'nome' => $this->faker->name,
             'cpf' => $this->faker->unique()->numberBetween(10000000000, 99999999999),
             'data_nacimento' => $this->faker->date(),
-            'fucao' => $this->faker->jobTitle,
             'email' => $this->faker->unique()->safeEmail,
             'telefone' => $this->faker->unique()->numberBetween(10000000000, 99999999999),
             'endereco_id' => \App\Models\Endereco::factory(),

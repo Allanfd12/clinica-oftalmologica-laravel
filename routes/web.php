@@ -22,6 +22,7 @@ Route::get('/', function () {
 
 Route::get('/pacientes', [PacienteController::class, 'index'])->name('pacientes.list');
 Route::get('/pacientes/criar', [PacienteController::class, 'create'])->name('pacientes.criar');
+Route::post('/pacientes/store', [PacienteController::class, 'store'])->name('pacientes.store');
 
 Route::get('/usuarios', [UserController::class, 'index'])->name('usuarios.list');
 Route::get('/usuarios/criar', [UserController::class, 'create'])->name('usuarios.criar');
