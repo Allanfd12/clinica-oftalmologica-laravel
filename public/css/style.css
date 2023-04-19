@@ -8,8 +8,8 @@ input.form-control{ width: 300px!important; }
 
 #side_nav {
     background: #20B2AA;
-    min-width: 180px;
-    max-width: 180px;
+    min-width: 200px;
+    max-width: 200px;
 }
 .navbar-cima {
     min-height: 100vh;
@@ -31,7 +31,6 @@ hr.h-color {
 
 .sidebar li a {
     color: white;
-    margin-bottom: 25px;
 }
 
 .logo-texto {

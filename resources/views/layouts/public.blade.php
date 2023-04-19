@@ -23,27 +23,27 @@
           </a>
         </div>
         <ul class="list-unstyled px-3">
-          <li><a href="{{ route('pacientes.list') }}" class="text-decoration-none d-block" style="margin-top: 12px"><span class="material-symbols-outlined icon">
+          <li class="p-1"><a href="{{ route('pacientes.list') }}" class="text-decoration-none d-block"><span class="material-symbols-outlined icon">
             patient_list
             </span> Pacientes</a></li>
-          <li><a href="#" class="text-decoration-none d-block"><span class="material-symbols-outlined icon">
+          <li class="p-1"><a href="#" class="text-decoration-none d-block"><span class="material-symbols-outlined icon">
             medical_services
             </span> Consultas</a></li>
-          <li><a href="#" class="text-decoration-none d-block"><span class="material-symbols-outlined icon">
+          <li class="p-1"><a href="#" class="text-decoration-none d-block"><span class="material-symbols-outlined icon">
             stethoscope
             </span> Médicos</a></li>
-          <li><a href="#" class="text-decoration-none d-block"><span class="material-symbols-outlined icon">
+          <li class="p-1"><a href="#" class="text-decoration-none d-block"><span class="material-symbols-outlined icon">
             assignment
             </span> Prontuários</a></li>
-          <li><a href="#" class="text-decoration-none d-block"><span class="material-symbols-outlined icon">
+          <li class="p-1"><a href="#" class="text-decoration-none d-block"><span class="material-symbols-outlined icon">
             pill
             </span> Medicamentos</a></li>
-          <li><a href="{{ route('usuarios.list') }}" class="text-decoration-none d-block"><span class="material-symbols-outlined icon">
+          <li class="p-1"><a href="{{ route('usuarios.list') }}" class="text-decoration-none d-block"><span class="material-symbols-outlined icon">
             account_circle</span> Usuários</a></li>
-          <li><a href="#" class="text-decoration-none d-block"><span class="material-symbols-outlined icon">
+          <li class="p-1"><a href="#" class="text-decoration-none d-block"><span class="material-symbols-outlined icon">
             login
             </span> Acessos</a></li>
-          <li><a href="#" class="text-decoration-none d-block"><span class="material-symbols-outlined icon">
+          <li class="p-1"><a href="#" class="text-decoration-none d-block"><span class="material-symbols-outlined icon">
             lab_profile
             </span> Relatórios</a></li>
         </ul>
