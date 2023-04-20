@@ -29,30 +29,30 @@
                 </a>
             </div>
             <ul class="list-unstyled px-3">
-                <li class="p-1 @if (Route::is('pacientes.list')) active @endif"><a href="{{ route('pacientes.list') }}"
+                <li class="p-1 mb-2 @if (Route::is('pacientes.list')) active @endif"><a href="{{ route('pacientes.list') }}"
                         class="text-decoration-none d-block"><span class="material-symbols-outlined icon">
                             patient_list
                         </span> Pacientes</a></li>
-                <li class="p-1"><a href="#" class="text-decoration-none d-block"><span
+                <li class="p-1 mb-2"><a href="#" class="text-decoration-none d-block"><span
                             class="material-symbols-outlined icon">
                             medical_services
                         </span> Consultas</a></li>
-                <li class="p-1"><a href="#" class="text-decoration-none d-block"><span
+                <li class="p-1 mb-2"><a href="#" class="text-decoration-none d-block"><span
                             class="material-symbols-outlined icon">
                             stethoscope
                         </span> Médicos</a></li>
-                <li class="p-1"><a href="#" class="text-decoration-none d-block"><span
+                <li class="p-1 mb-2"><a href="#" class="text-decoration-none d-block"><span
                             class="material-symbols-outlined icon">
                             assignment
                         </span> Prontuários</a></li>
-                <li class="p-1"><a href="#" class="text-decoration-none d-block"><span
+                <li class="p-1 mb-2"><a href="#" class="text-decoration-none d-block"><span
                             class="material-symbols-outlined icon">
                             pill
                         </span> Medicamentos</a></li>
-                <li class="p-1 @if (Route::is('usuarios.list')) active @endif"><a href="{{ route('usuarios.list') }}" class="text-decoration-none d-block"><span
+                <li class="p-1 mb-2 @if (Route::is('usuarios.list')) active @endif"><a href="{{ route('usuarios.list') }}" class="text-decoration-none d-block"><span
                             class="material-symbols-outlined icon">
                             account_circle</span> Usuários</a></li>
-                <li class="p-1"><a href="#" class="text-decoration-none d-block"><span
+                <li class="p-1 mb-2"><a href="#" class="text-decoration-none d-block"><span
                             class="material-symbols-outlined icon">
                             login
                         </span> Acessos</a></li>

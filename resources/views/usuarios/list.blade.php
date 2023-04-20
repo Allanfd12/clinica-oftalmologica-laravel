@@ -8,7 +8,7 @@
 
     <div class="card" style="width: 90%; margin-left: 5%">
         <div class="card-header d-flex justify-content-between align-items-center" style="background-color:#20B2AA; color: white;">
-            <a href="{{ 'usuarios/criar '}}" class="btn btn-light"><span class="material-symbols-outlined" style="vertical-align: bottom">add</span> Novo Usuário</a>
+            <a href="{{ route('usuarios.criar') }}" class="btn btn-light"><span class="material-symbols-outlined" style="vertical-align: bottom">add</span> Novo Usuário</a>
             <form class="d-flex" role="search">
                 <input class="form-control me-2 " type="search" placeholder="Pesquisar" aria-label="Search">
                 <button class="btn btn-light" type="submit"><span class="material-symbols-outlined" style="vertical-align: bottom">
