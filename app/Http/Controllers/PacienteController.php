@@ -9,6 +9,7 @@ use App\Models\Pessoa;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+
 class PacienteController extends Controller
 {
     /**
@@ -16,11 +17,13 @@ class PacienteController extends Controller
      */
     public function index()
     {
+        $search = request()->query('search');
         $pacientes = Paciente::join('pessoas', 'pacientes.pessoa_id', '=', 'pessoas.id')
             ->select('pacientes.*', 'pessoas.*')
-            ->paginate(10);
+            ->where('pessoas.nome', 'like', "%{$search}%")
+            ->paginate(10)->withQueryString();
 
-        return view('pacientes.list')->with('pacientes', $pacientes);
+        return view('pacientes.list',['pacientes'=> $pacientes, 'search' => $search]);
     }
 
     /**
@@ -36,8 +39,8 @@ class PacienteController extends Controller
      */
     public function store(StorePacienteRequest $request)
     {
-       // dd($request->all());
-     //  dd(Carbon::parse($request->data_nacimento)->format('m/d/Y'));
+        // dd($request->all());
+        //  dd(Carbon::parse($request->data_nacimento)->format('m/d/Y'));
         $request->validated();
         DB::transaction(function () use ($request) {
 

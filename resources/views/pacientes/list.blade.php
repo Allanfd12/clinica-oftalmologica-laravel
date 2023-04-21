@@ -9,8 +9,8 @@
     <div class="card" style="width: 90%; margin-left: 5%">
         <div class="card-header d-flex justify-content-between align-items-center" style="background-color:#20B2AA; color: white;">
             <a href="{{ 'pacientes/criar '}}" class="btn btn-light"><span class="material-symbols-outlined" style="vertical-align: bottom">add</span> Novo Paciente</a>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2 " type="search" placeholder="Pesquisar" aria-label="Search">
+            <form class="d-flex" role="search" action="{{route('pacientes.list')}}" method="GET">
+                <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search" name='search' value="{{$search}}">
                 <button class="btn btn-light" type="submit"><span class="material-symbols-outlined" style="vertical-align: bottom">
                 search
                 </span></button>
