@@ -13,12 +13,15 @@ class UserController extends Controller
      */
     public function index()
     {
+        $search = request()->query('search');
         $users = User::from('users as u')
             ->join('pessoas as p', 'u.pessoa_id', '=', 'p.id')
             ->select('u.*', 'p.*')
-            ->paginate(10);
+            ->where('p.nome', 'like', "%{$search}%")
+            ->orWhere('u.email', 'like', "%{$search}%")
+            ->paginate(10)->withQueryString();
 
-            return view('usuarios.list')->with('usuarios', $users);
+            return view('usuarios.list',['usuarios'=> $users, 'search' => $search]);
     }
 
     /**
