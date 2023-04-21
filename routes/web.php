@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\UserController;
+use App\Http\Livewire\Pacientes\ListPacientesComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::get('/pacientes', [PacienteController::class, 'index'])->name('pacientes.list');
+Route::get('/pacientes',  ListPacientesComponent::class)->name('pacientes.list');
 Route::get('/pacientes/criar', [PacienteController::class, 'create'])->name('pacientes.criar');
 Route::post('/pacientes/store', [PacienteController::class, 'store'])->name('pacientes.store');
 
