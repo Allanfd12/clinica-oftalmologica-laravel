@@ -9,7 +9,7 @@ use Livewire\WithPagination;
 class ListPacientesComponent extends Component
 {
 
-    public $search ; 
+    public $search;
 
 
     use WithPagination;
@@ -18,12 +18,21 @@ class ListPacientesComponent extends Component
     public function render()
     {
 
+
         $pacientes = Paciente::join('pessoas', 'pacientes.pessoa_id', '=', 'pessoas.id')
             ->select('pacientes.*', 'pessoas.*')
             ->where('pessoas.nome', 'like', "%{$this->search}%")
             ->paginate(10);
-            
-        return view('livewire.pacientes.list-pacientes-component',['pacientes'=> $pacientes])->layout('layouts.public-livewire');
+
+
+        return view('livewire.pacientes.list-pacientes-component', ['pacientes' => $pacientes])->layout('layouts.public-livewire');
     }
 
+    public function updating($name, $value)
+    {
+        if($name == 'search'){
+            $this->resetPage();
+        }
+      
+    }
 }
