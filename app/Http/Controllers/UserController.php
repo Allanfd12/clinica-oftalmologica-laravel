@@ -67,14 +67,13 @@ class UserController extends Controller
         $pessoa->save();
 
         $usuario = new User();
-            $usuario->id = $pessoa->id;
             $usuario->name = $pessoa->nome;
             $usuario->email = $pessoa->email;
             $usuario->password = $request->password;
             $usuario->save();
         });
 
-        return redirect()->route('pacientes.list');
+        return redirect()->route('usuarios.list');
     }
 
     /**

@@ -16,7 +16,7 @@
                 <div class="row">
                     <div class="col-md-4 mb-4" >
                         <label for="name" class="form-label">Nome</label>
-                        <input type="text" class="form-control" name="name" >
+                        <input type="text" class="form-control" name="nome" >
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="cpf" class="form-label">CPF</label>
