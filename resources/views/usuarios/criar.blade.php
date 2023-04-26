@@ -38,38 +38,6 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4 mb-3">
-                        <label for="rua" class="form-label">Rua</label>
-                        <input type="text" class="form-control" name="rua" >
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <label for="numero" class="form-label">Número</label>
-                        <input type="text" class="form-control" name="numero" >
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <label for="cep" class="form-label">CEP</label>
-                        <input type="text" class="form-control" name="cep" >
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4 mb-3">
-                        <label for="bairro" class="form-label">Bairro</label>
-                        <input type="text" class="form-control" name="bairro" >
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <label for="cidade" class="form-label">Cidade</label>
-                        <input type="text" class="form-control" name="cidade" >
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <label for="estado" class="form-label">Estado</label>
-                        <input type="text" class="form-control" name="estado" >
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4 mb-4">
-                        <label for="complemento" class="form-label">Complemento</label>
-                        <input type="text" class="form-control" name="complemento">
-                    </div>
                     <div class="col-md-4 mb-4">
                         <label for="password" class="form-label">Senha</label>
                         <input type="text" class="form-control" name="password" >

@@ -43,18 +43,6 @@ class UserController extends Controller
         $request->validated();
         DB::transaction(function () use ($request) {
 
-        $endereco = new \App\Models\Endereco();
-
-
-        $endereco->rua = $request->rua;
-        $endereco->numero = $request->numero;
-        $endereco->bairro = $request->bairro;
-        $endereco->cidade = $request->cidade;
-        $endereco->estado = $request->estado;
-        $endereco->cep = $request->cep;
-        $endereco->complemento = $request->complemento;
-        $endereco->save();
-
         $pessoa = new Pessoa();
         $pessoa->nome = $request->nome;
         //remove caracteres especiais
@@ -63,7 +51,6 @@ class UserController extends Controller
         $pessoa->data_nacimento = Carbon::parse($request->data_nacimento)->format('Y-m-d');;
         $pessoa->email = $request->email;
         $pessoa->telefone = $request->telefone;
-        $pessoa->endereco_id = $endereco->id;
         $pessoa->save();
 
         $usuario = new User();

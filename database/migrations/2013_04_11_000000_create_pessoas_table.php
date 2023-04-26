@@ -19,7 +19,7 @@ return new class extends Migration
             $table->date('data_nacimento');
             $table->string('email',255);
             $table->string('telefone',11);
-            $table->foreignId('endereco_id')->constrained('enderecos');
+            $table->foreignId('endereco_id')->nullable()->constrained('enderecos');
             $table->timestamps();
 
         });
