@@ -23,7 +23,7 @@
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Nome</th>
-                        <th scope="col">Teste</th>
+                        <th scope="col">Telefone</th>
                         <th scope="col">Ações</th>
                     </tr>
                 </thead>
@@ -32,7 +32,7 @@
                 <tr>
                     <td scope="row">{{$paciente->id}}</td>
                     <td scope="row">{{$paciente->nome}}</td>
-                    <td>Teste</td>
+                    <td scope="row">{{$paciente->telefone}}</td>
                     <td>
                         <a href="#" class="link-secondary"><span class="material-symbols-outlined fs-4">edit_square</span></a>
                         <a href="#" class="link-secondary"><span class="material-symbols-outlined fs-4">
