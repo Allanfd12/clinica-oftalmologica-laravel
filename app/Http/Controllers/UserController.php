@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
+use Illuminate\Support\Facades\DB;
+use App\Models\Pessoa;
+use Carbon\Carbon;
 
 class UserController extends Controller
 {
@@ -37,33 +40,41 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request)
     {
-        // $request->validated();
-        // DB::transaction(function () use ($request) {
+        $request->validated();
+        DB::transaction(function () use ($request) {
 
-        //     $endereco = new \App\Models\Endereco();
+        $endereco = new \App\Models\Endereco();
 
 
-        //     $endereco->rua = $request->rua;
-        //     $endereco->numero = $request->numero;
-        //     $endereco->bairro = $request->bairro;
-        //     $endereco->cidade = $request->cidade;
-        //     $endereco->estado = $request->estado;
-        //     $endereco->cep = $request->cep;
-        //     $endereco->complemento = $request->complemento;
-        //     $endereco->save();
+        $endereco->rua = $request->rua;
+        $endereco->numero = $request->numero;
+        $endereco->bairro = $request->bairro;
+        $endereco->cidade = $request->cidade;
+        $endereco->estado = $request->estado;
+        $endereco->cep = $request->cep;
+        $endereco->complemento = $request->complemento;
+        $endereco->save();
 
-        //     $pessoa = new Pessoa();
-        //     $pessoa->nome = $request->nome;
-        //     // remove caracteres especiais
-        //     $pessoa->cpf = preg_replace('/[^0-9]/', '', $request->cpf);
+        $pessoa = new Pessoa();
+        $pessoa->nome = $request->nome;
+        //remove caracteres especiais
+        $pessoa->cpf = preg_replace('/[^0-9]/', '', $request->cpf);
 
-        //     $pessoa->data_nacimento = Carbon::parse($request->data_nacimento)->format('Y-m-d');;
-        //     $pessoa->email = $request->email;
-        //     $pessoa->telefone = $request->telefone;
-        //     $pessoa->endereco_id = $endereco->id;
-        //     $pessoa->save();    
-        // });
-        // return redirect()->route('pacientes.list');
+        $pessoa->data_nacimento = Carbon::parse($request->data_nacimento)->format('Y-m-d');;
+        $pessoa->email = $request->email;
+        $pessoa->telefone = $request->telefone;
+        $pessoa->endereco_id = $endereco->id;
+        $pessoa->save();
+
+        $usuario = new User();
+            $usuario->id = $pessoa->id;
+            $usuario->name = $pessoa->nome;
+            $usuario->email = $pessoa->email;
+            $usuario->password = $request->password;
+            $usuario->save();
+        });
+
+        return redirect()->route('pacientes.list');
     }
 
     /**

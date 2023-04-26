@@ -26,6 +26,7 @@ Route::post('/pacientes/store', [PacienteController::class, 'store'])->name('pac
 
 Route::get('/usuarios', [UserController::class, 'index'])->name('usuarios.list');
 Route::get('/usuarios/criar', [UserController::class, 'create'])->name('usuarios.criar');
+Route::post('/usuarios/store', [UserController::class, 'store'])->name('usuarios.store');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
