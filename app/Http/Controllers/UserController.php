@@ -67,6 +67,7 @@ class UserController extends Controller
         $pessoa->save();
 
         $usuario = new User();
+            $usuario->pessoa_id = $pessoa->id;
             $usuario->name = $pessoa->nome;
             $usuario->email = $pessoa->email;
             $usuario->password = $request->password;
