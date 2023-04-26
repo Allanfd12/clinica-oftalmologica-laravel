@@ -11,12 +11,12 @@
             Preencha os dados do novo usuário
         </h4>
         <div class="card-body">
-            <form action="{{ route('pacientes.store') }}" method="POST" style="display: inline;">
+            <form action="{{ route('usuarios.store') }}" method="POST" style="display: inline;">
                 @csrf
                 <div class="row">
                     <div class="col-md-4 mb-4" >
                         <label for="name" class="form-label">Nome</label>
-                        <input type="text" class="form-control" name="name" >
+                        <input type="text" class="form-control" name="nome" >
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="cpf" class="form-label">CPF</label>
@@ -72,11 +72,11 @@
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="password" class="form-label">Senha</label>
-                        <input type="tel" class="form-control" name="password" >
+                        <input type="text" class="form-control" name="password" >
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="password" class="form-label">Confirmar Senha</label>
-                        <input type="tel" class="form-control" name="password" >
+                        <input type="text" class="form-control" name="password" >
                     </div>
                 </div>
                 <button class="btn btn-primary d-grid gap-2 col-3 mx-auto" type="submit">Cadastrar</button>
