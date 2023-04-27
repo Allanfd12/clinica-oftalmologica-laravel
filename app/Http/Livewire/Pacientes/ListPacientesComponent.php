@@ -25,7 +25,7 @@ class ListPacientesComponent extends Component
             ->paginate(10);
 
 
-        return view('livewire.pacientes.list-pacientes-component', ['pacientes' => $pacientes])->layout('layouts.public-livewire');
+        return view('livewire.pacientes.list-pacientes-component', ['pacientes' => $pacientes])->layout('layouts.public');
     }
 
     public function updating($name, $value)

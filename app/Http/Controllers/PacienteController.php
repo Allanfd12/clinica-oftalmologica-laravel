@@ -61,7 +61,7 @@ class PacienteController extends Controller
             // remove caracteres especiais
             $pessoa->cpf = preg_replace('/[^0-9]/', '', $request->cpf);
 
-            $pessoa->data_nacimento = Carbon::parse($request->data_nacimento)->format('Y-m-d');;
+            $pessoa->data_nacimento = Carbon::parse($request->data_nacimento)->format('Y-m-d');
             $pessoa->email = $request->email;
             $pessoa->telefone = $request->telefone;
             $pessoa->endereco_id = $endereco->id;

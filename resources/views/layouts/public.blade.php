@@ -16,6 +16,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <title>@yield('title', 'Ophtamuls - Home')</title>
+    @livewireStyles
 </head>
 
 <body>
@@ -105,7 +106,8 @@
                     </ul>
                 </div>
             </nav>
-            @yield('content')
+            {{$slot}}
+          
         </div>
     </div>
 
@@ -119,7 +121,9 @@
             $('.sidebar ul li.active').removeClass('active');
             $(this).addClass('active');
         })
+        
     </script>
+    @livewireScripts
 </body>
 
 </html>

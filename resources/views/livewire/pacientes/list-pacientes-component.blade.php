@@ -1,10 +1,11 @@
+@section('title', 'Ophtamuls - Pacientes')
 <div>    
     <h2 style="text-align: left; margin-top: 2%; margin-left: 5%; color: #20B2AA">Pacientes</h2>
     <hr style="margin-left: 5%; margin-top: 1%; margin-bottom: 1%; width: 90%;"class="linha-home">
 
     <div class="card" style="width: 90%; margin-left: 5%">
         <div class="card-header d-flex justify-content-between align-items-center" style="background-color:#20B2AA; color: white;">
-            <a href="{{ 'pacientes/criar '}}" class="btn btn-light"><span class="material-symbols-outlined" style="vertical-align: bottom">add</span> Novo Paciente</a>
+            <a href="{{ route('pacientes.criar')}}" class="btn btn-light"><span class="material-symbols-outlined" style="vertical-align: bottom">add</span> Novo Paciente</a>
         </span></button>
                 <input wire:model="search" class="form-control me-2" type="search" placeholder="Pesquisar" >
         </div>

@@ -18,7 +18,7 @@ class UserController extends Controller
             ->join('pessoas as p', 'u.pessoa_id', '=', 'p.id')
             ->select('u.*', 'p.*')
             ->where('p.nome', 'like', "%{$search}%")
-            ->orWhere('u.email', 'like', "%{$search}%")
+            ->orWhere('p.email', 'like', "%{$search}%")
             ->paginate(10)->withQueryString();
 
             return view('usuarios.list',['usuarios'=> $users, 'search' => $search]);
