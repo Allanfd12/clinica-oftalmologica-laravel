@@ -19,12 +19,14 @@ class UserController extends Controller
         $search = request()->query('search');
         $users = User::from('users as u')
             ->join('pessoas as p', 'u.pessoa_id', '=', 'p.id')
-            ->select('u.*', 'p.*')
+            ->select('u.*', 'p.nome')
             ->where('p.nome', 'like', "%{$search}%")
             ->orWhere('u.email', 'like', "%{$search}%")
             ->paginate(10)->withQueryString();
 
-            return view('usuarios.list',['usuarios'=> $users, 'search' => $search]);
+        // dd($users  );
+
+        return view('usuarios.list', ['usuarios' => $users, 'search' => $search]);
     }
 
     /**
@@ -43,17 +45,17 @@ class UserController extends Controller
         $request->validated();
         DB::transaction(function () use ($request) {
 
-        $pessoa = new Pessoa();
-        $pessoa->nome = $request->nome;
-        //remove caracteres especiais
-        $pessoa->cpf = preg_replace('/[^0-9]/', '', $request->cpf);
+            $pessoa = new Pessoa();
+            $pessoa->nome = $request->nome;
+            //remove caracteres especiais
+            $pessoa->cpf = preg_replace('/[^0-9]/', '', $request->cpf);
 
-        $pessoa->data_nacimento = Carbon::parse($request->data_nacimento)->format('Y-m-d');;
-        $pessoa->email = $request->email;
-        $pessoa->telefone = $request->telefone;
-        $pessoa->save();
+            $pessoa->data_nacimento = Carbon::parse($request->data_nacimento)->format('Y-m-d');;
+            $pessoa->email = $request->email;
+            $pessoa->telefone = $request->telefone;
+            $pessoa->save();
 
-        $usuario = new User();
+            $usuario = new User();
             $usuario->pessoa_id = $pessoa->id;
             $usuario->name = $pessoa->nome;
             $usuario->email = $pessoa->email;
@@ -75,8 +77,11 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($id) {
+    public function edit($id)
+    {
+
         $user = User::with('pessoa')->findOrFail($id);
+
         return view('usuarios.editar', compact('user'));
     }
 
@@ -85,7 +90,7 @@ class UserController extends Controller
      */
     public function update(UpdateUserRequest $request, $id)
     {
-       
+
 
         DB::beginTransaction();
 
