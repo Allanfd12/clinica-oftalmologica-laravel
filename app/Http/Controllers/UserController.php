@@ -75,18 +75,38 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(User $user)
-    {
-        //
+    public function edit($id) {
+        $user = User::with('pessoa')->findOrFail($id);
+        return view('usuarios.editar', compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateUserRequest $request, User $user)
+    public function update(UpdateUserRequest $request, $id)
     {
-        //
+        $request->validated();
+
+        DB::beginTransaction();
+
+        $usuario = User::findOrFail($id);
+        $pessoa = $usuario->pessoa;
+
+        $pessoa->nome = $request->nome;
+        $pessoa->cpf = preg_replace('/[^0-9]/', '', $request->cpf);
+        $pessoa->data_nacimento = Carbon::parse($request->data_nacimento)->format('Y-m-d');
+        $pessoa->email = $request->email;
+        $pessoa->telefone = $request->telefone;
+        $pessoa->save();
+
+        $usuario->name = $pessoa->nome;
+        $usuario->email = $pessoa->email;
+        $usuario->password = $request->password;
+        $usuario->save();
+
+        return redirect()->route('usuarios.list');
     }
+
 
     /**
      * Remove the specified resource from storage.

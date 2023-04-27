@@ -36,7 +36,7 @@
                     <td>{{$user->email}}</td>
                     <td>Todas</td>
                     <td>
-                        <a href="#" class="link-secondary"><span class="material-symbols-outlined fs-4">edit_square</span></a>
+                        <a href="{{ route('usuarios.editar', $user->id) }}" class="link-secondary"><span class="material-symbols-outlined fs-4">edit_square</span></a>
                         <a href="#" class="link-secondary"><span class="material-symbols-outlined fs-4">
                             visibility
                             </span></a>

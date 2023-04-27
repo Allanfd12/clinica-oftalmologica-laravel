@@ -26,6 +26,8 @@ Route::post('/pacientes/store', [PacienteController::class, 'store'])->name('pac
 
 Route::get('/usuarios', [UserController::class, 'index'])->name('usuarios.list');
 Route::get('/usuarios/criar', [UserController::class, 'create'])->name('usuarios.criar');
+Route::get('/usuarios/{id}/editar', [UserController::class, 'edit'])->name('usuarios.editar');
+Route::patch('/usuarios/{id}/atualizar', [UserController::class, 'update'])->name('usuarios.atualizar');
 Route::post('/usuarios/store', [UserController::class, 'store'])->name('usuarios.store');
 
 Route::get('/dashboard', function () {
