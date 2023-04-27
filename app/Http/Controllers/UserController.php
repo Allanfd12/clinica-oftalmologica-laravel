@@ -85,7 +85,7 @@ class UserController extends Controller
      */
     public function update(UpdateUserRequest $request, $id)
     {
-        $request->validated();
+       
 
         DB::beginTransaction();
 
@@ -101,8 +101,9 @@ class UserController extends Controller
 
         $usuario->name = $pessoa->nome;
         $usuario->email = $pessoa->email;
-        $usuario->password = $request->password;
         $usuario->save();
+
+        DB::commit();
 
         return redirect()->route('usuarios.list');
     }
