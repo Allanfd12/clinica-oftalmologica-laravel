@@ -22,7 +22,7 @@
                 <thead class="table-light">
                     <tr>
                         <th scope="col">ID</th>
-                        <th scope="col">Login</th>
+                        <th scope="col">Nome</th>
                         <th scope="col">Email</th>
                         <th scope="col">Permissões</th>
                         <th scope="col">Ações</th>
