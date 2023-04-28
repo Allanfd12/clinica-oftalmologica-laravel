@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateUserRequest;
 use Illuminate\Support\Facades\DB;
 use App\Models\Pessoa;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -59,7 +60,7 @@ class UserController extends Controller
             $usuario->pessoa_id = $pessoa->id;
             $usuario->name = $pessoa->nome;
             $usuario->email = $pessoa->email;
-            $usuario->password = $request->password;
+            $usuario->password = Hash::make($request->newPassword);
             $usuario->save();
         });
 
@@ -91,8 +92,6 @@ class UserController extends Controller
      */
     public function update(UpdateUserRequest $request, $id)
     {
-
-
         DB::beginTransaction();
 
         $usuario = User::findOrFail($id);
