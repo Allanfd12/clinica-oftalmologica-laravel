@@ -67,9 +67,10 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(User $user)
+    public function show($id)
     {
-        //
+        $user = User::with('pessoa')->findOrFail($id);
+        return view('usuarios.visualizar', compact('user'));
     }
 
     /**
@@ -111,8 +112,11 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
-        //
+        $registro = User::find($id);
+        $registro->delete();
+
+        return redirect()->route('usuarios.list');
     }
 }

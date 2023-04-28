@@ -29,6 +29,8 @@ Route::get('/usuarios/criar', [UserController::class, 'create'])->name('usuarios
 Route::get('/usuarios/{id}/editar', [UserController::class, 'edit'])->name('usuarios.editar');
 Route::patch('/usuarios/{id}/atualizar', [UserController::class, 'update'])->name('usuarios.atualizar');
 Route::post('/usuarios/store', [UserController::class, 'store'])->name('usuarios.store');
+Route::get('/usuarios/{id}/visualizar', [UserController::class, 'show'])->name('usuarios.visualizar');
+Route::get('/usuarios/{id}/excluir', [UserController::class, 'destroy'])->name('usuarios.excluir');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -37,10 +37,10 @@
                     <td>Todas</td>
                     <td>
                         <a href="{{ route('usuarios.editar', $user->id) }}" class="link-secondary"><span class="material-symbols-outlined fs-4">edit_square</span></a>
-                        <a href="#" class="link-secondary"><span class="material-symbols-outlined fs-4">
+                        <a href="{{ route('usuarios.visualizar', $user->id) }}" class="link-secondary"><span class="material-symbols-outlined fs-4">
                             visibility
                             </span></a>
-                        <a href="#" class="link-secondary"><span class="material-symbols-outlined fs-4">
+                        <a href="{{ route('usuarios.excluir', $user->id) }}" class="link-secondary"><span class="material-symbols-outlined fs-4">
                             delete
                             </span></a>
                     </td>
