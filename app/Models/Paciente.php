@@ -9,4 +9,10 @@ class Paciente extends Model
 {
     use HasFactory;
 
+    public function pessoa()
+    {
+        return $this->belongsTo(Pessoa::class);
+    }
+
 }
+

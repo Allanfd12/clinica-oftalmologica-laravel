@@ -9,4 +9,9 @@ class Pessoa extends Model
 {
     use HasFactory;
 
+    public function endereco()
+    {
+        return $this->belongsTo(Endereco::class);
+    }
+
 }

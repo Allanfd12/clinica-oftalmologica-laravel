@@ -34,7 +34,7 @@
                     <td scope="row">{{$paciente->nome}}</td>
                     <td scope="row">{{$paciente->telefone}}</td>
                     <td>
-                        <a href="#" class="link-secondary"><span class="material-symbols-outlined fs-4">edit_square</span></a>
+                        <a href="{{ route('pacientes.editar', $paciente -> id) }}" class="link-secondary"><span class="material-symbols-outlined fs-4">edit_square</span></a>
                         <a href="#" class="link-secondary"><span class="material-symbols-outlined fs-4">
                             visibility
                             </span></a>
