@@ -40,9 +40,15 @@
                         <a href="{{ route('usuarios.visualizar', $user->id) }}" class="link-secondary"><span class="material-symbols-outlined fs-4">
                             visibility
                             </span></a>
-                        <a href="{{ route('usuarios.excluir', $user->id) }}" class="link-secondary"><span class="material-symbols-outlined fs-4">
-                            delete
-                            </span></a>
+
+                        <form method="POST" id='delete_form' action="{{ route('usuarios.excluir', $user->id) }}"  style="display: inline">
+                            @csrf
+                            @method('DELETE')
+                            <a href="javascript:{}" onclick="confirm('Are you sure?') ? document.getElementById('delete_form').submit():null; return false;" class="link-secondary"><span class="material-symbols-outlined fs-4">
+                                delete
+                                </span></a>
+                        </form>
+                        
                     </td>
                 </tr>
                 @endforeach
@@ -54,9 +60,37 @@
         </div>
         
     </div>
-    
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_delete">
+        Launch static backdrop modal
+      </button>
     <hr style="margin-left: 5%; margin-top: 1%; margin-bottom: 1%; width: 90%;" class="linha-home">
-    
+    <div class="modal" id='modal_delete' >
+        <div class="modal-dialog modal-dialog-centered ">
+            <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Deseja realmente deletar este usuario?</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p>Modal body text goes here.</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+        </div>
+    </div>
+<script>
 
+    console.log('oasai');
+
+    var myModal = new bootstrap.Modal('#modal_delete')
+    
+myModal.show()
+
+
+
+</script>
     
 @endsection

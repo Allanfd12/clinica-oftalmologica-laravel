@@ -1,6 +1,9 @@
-<form method="POST" action="{{ route('usuarios.excluir', ['id' => $user->id]) }}">
-    @csrf
-    <p>Tem certeza que deseja excluir o registro?</p>
-    <button type="submit">Sim</button>
-    <a href="{{ route('usuarios.list') }}">Não</a>
-</form>
+
+    <!-- Full screen modal -->
+<div>
+    <form method="POST" action="{{ route('usuarios.excluir', $user->id) }}" onsubmit="return confirm('Are you sure?')" style="display: inline">
+        @csrf
+        @method('DELETE')
+        <button type="submit" title="Delete">Sim</button>
+    </form>
+</div>

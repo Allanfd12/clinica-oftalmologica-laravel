@@ -28,7 +28,6 @@ Route::get('/pacientes/{id}/editar', [PacienteController::class, 'edit'])->name(
 Route::patch('/pacientes/{id}/atualizar', [PacienteController::class, 'update'])->name('pacientes.atualizar');
 Route::get('/pacientes/{id}/visualizar', [PacienteController::class, 'show'])->name('pacientes.visualizar');
 
-
 //ROTAS DO USUARIO
 Route::get('/usuarios', [UserController::class, 'index'])->name('usuarios.list');
 Route::get('/usuarios/criar', [UserController::class, 'create'])->name('usuarios.criar');
@@ -36,7 +35,7 @@ Route::post('/usuarios/store', [UserController::class, 'store'])->name('usuarios
 Route::get('/usuarios/{id}/editar', [UserController::class, 'edit'])->name('usuarios.editar');
 Route::patch('/usuarios/{id}/atualizar', [UserController::class, 'update'])->name('usuarios.atualizar');
 Route::get('/usuarios/{id}/visualizar', [UserController::class, 'show'])->name('usuarios.visualizar');
-Route::get('/usuarios/{id}/excluir', [UserController::class, 'destroy'])->name('usuarios.excluir');
+Route::delete('/usuarios/{id}/excluir', [UserController::class, 'destroy'])->name('usuarios.excluir');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

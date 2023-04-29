@@ -119,7 +119,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $registro = User::find($id);
+        $registro = User::with('pessoa')->findOrFail($id);
         $registro->delete();
 
         return redirect()->route('usuarios.list');
