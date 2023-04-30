@@ -35,12 +35,8 @@
                     <td scope="row">{{$paciente->telefone}}</td>
                     <td>
                         <a href="{{ route('pacientes.editar', $paciente -> id) }}" class="link-secondary"><span class="material-symbols-outlined fs-4">edit_square</span></a>
-                        <a href="{{ route('pacientes.visualizar', $paciente->id) }}" class="link-secondary"><span class="material-symbols-outlined fs-4">
-                            visibility
-                            </span></a>
-                        <a href="#" class="link-secondary"><span class="material-symbols-outlined fs-4">
-                            delete
-                            </span></a>
+                        <a href="{{ route('pacientes.visualizar', $paciente->id) }}" class="link-secondary"><span class="material-symbols-outlined fs-4">visibility</span></a>
+                        <a href="{{ route('pacientes.excluir', $paciente->id) }}" class="link-secondary"><span class="material-symbols-outlined fs-4">delete</span></a>
                     </td>
                 </tr>
                 @endforeach

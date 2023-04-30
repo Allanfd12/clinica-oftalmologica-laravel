@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Paciente extends Model
 {
@@ -14,5 +15,11 @@ class Paciente extends Model
         return $this->belongsTo(Pessoa::class);
     }
 
+    use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
+
 }
+
+
 
