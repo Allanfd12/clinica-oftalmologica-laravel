@@ -37,17 +37,34 @@
                     <td>Todas</td>
                     <td>
                         <a href="{{ route('usuarios.editar', $user->id) }}" class="link-secondary"><span class="material-symbols-outlined fs-4">edit_square</span></a>
-                        <a href="{{ route('usuarios.visualizar', $user->id) }}" class="link-secondary"><span class="material-symbols-outlined fs-4">
-                            visibility
-                            </span></a>
+                        <a href="{{ route('usuarios.visualizar', $user->id) }}" class="link-secondary"><span class="material-symbols-outlined fs-4">visibility</span></a>
+                        <a type="button" class="link-secondary" data-bs-toggle="modal" data-bs-target="#idModal{{ $user->id }}"><span class="material-symbols-outlined fs-4">delete</span></a>
 
-                        <form method="POST" id='delete_form' action="{{ route('usuarios.excluir', $user->id) }}"  style="display: inline">
+                        <!-- Modal -->
+                        <div class="modal fade" id="idModal{{ $user->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static">
+                            <div class="modal-dialog modal-dialog-centered">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h1 class="modal-title fs-5" id="exampleModalLabel">Excluir Usuário</h1>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                        <p>Tem certeza que deseja excluir o usuário {{$user->nome}} ?</p>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                  <a type="button" class="btn btn-danger" href="{{ route('usuarios.excluir', $user->id) }}">Excluir</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        {{-- <form method="POST" id='delete_form' action="{{ route('usuarios.excluir', $user->id) }}"  style="display: inline">
                             @csrf
                             @method('DELETE')
                             <a href="javascript:{}" onclick="confirm('Are you sure?') ? document.getElementById('delete_form').submit():null; return false;" class="link-secondary"><span class="material-symbols-outlined fs-4">
                                 delete
                                 </span></a>
-                        </form>
+                        </form> --}}
                         
                     </td>
                 </tr>
@@ -60,37 +77,17 @@
         </div>
         
     </div>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_delete">
+    {{-- <button >
         Launch static backdrop modal
-      </button>
+    </button> --}}
     <hr style="margin-left: 5%; margin-top: 1%; margin-bottom: 1%; width: 90%;" class="linha-home">
-    <div class="modal" id='modal_delete' >
-        <div class="modal-dialog modal-dialog-centered ">
-            <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">Deseja realmente deletar este usuario?</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  <p>Modal body text goes here.</p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-              </div>
-        </div>
-    </div>
 <script>
 
-    console.log('oasai');
+//     console.log('oasai');
 
-    var myModal = new bootstrap.Modal('#modal_delete')
+//     var myModal = new bootstrap.Modal('#modal_delete');
     
-myModal.show()
-
-
-
-</script>
+//     myModal.show();
+// </script>
     
 @endsection
