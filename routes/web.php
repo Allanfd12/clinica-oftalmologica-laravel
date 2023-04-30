@@ -27,7 +27,7 @@ Route::post('/pacientes/store', [PacienteController::class, 'store'])->name('pac
 Route::get('/pacientes/{id}/editar', [PacienteController::class, 'edit'])->name('pacientes.editar');
 Route::patch('/pacientes/{id}/atualizar', [PacienteController::class, 'update'])->name('pacientes.atualizar');
 Route::get('/pacientes/{id}/visualizar', [PacienteController::class, 'show'])->name('pacientes.visualizar');
-Route::delete('/pacientes/{id}/excluir', [PacienteController::class, 'destroy'])->name('pacientes.excluir');
+Route::get('/pacientes/{id}/excluir', [PacienteController::class, 'destroy'])->name('pacientes.excluir');
 
 
 //ROTAS DO USUARIO

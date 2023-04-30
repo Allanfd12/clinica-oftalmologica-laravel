@@ -138,7 +138,6 @@ class PacienteController extends Controller
 {
     $paciente = Paciente::findOrFail($id);
     $paciente->delete();
-    dd($paciente);
 
     return redirect()->route('pacientes.list')->with('success', 'Paciente deletado com sucesso!');
 }
