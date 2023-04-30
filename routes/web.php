@@ -35,7 +35,7 @@ Route::post('/usuarios/store', [UserController::class, 'store'])->name('usuarios
 Route::get('/usuarios/{id}/editar', [UserController::class, 'edit'])->name('usuarios.editar');
 Route::patch('/usuarios/{id}/atualizar', [UserController::class, 'update'])->name('usuarios.atualizar');
 Route::get('/usuarios/{id}/visualizar', [UserController::class, 'show'])->name('usuarios.visualizar');
-Route::delete('/usuarios/{id}/excluir', [UserController::class, 'destroy'])->name('usuarios.excluir');
+Route::get('/usuarios/{id}/excluir', [UserController::class, 'destroy'])->name('usuarios.excluir');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
