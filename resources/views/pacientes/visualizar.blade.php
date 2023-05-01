@@ -24,8 +24,8 @@
                         <input type="text" class="form-control" name="cpf" value="{{ $paciente->pessoa->cpf }}" disabled>
                     </div>
                     <div class="col-md-4 mb-4">
-                        <label for="data_nascimento" class="form-label">Data de Nascimento</label>
-                        <input type="date" class="form-control" name="data_nascimento" value="{{ $paciente->pessoa->data_nascimento }}" disabled>
+                        <label for="data_nacimento" class="form-label">Data de Nascimento</label>
+                        <input type="date" class="form-control" name="data_nacimento" value="{{ $paciente->pessoa->data_nacimento }}" disabled>
                     </div>
                 </div>
                 <div class="row">

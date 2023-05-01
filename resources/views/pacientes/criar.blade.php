@@ -23,8 +23,8 @@
                         <input type="text" class="form-control" name="cpf" >
                     </div>
                     <div class="col-md-4 mb-4">
-                        <label for="data_nascimento" class="form-label">Data de Nascimento</label>
-                        <input type="date" class="form-control" name="data_nascimento" >
+                        <label for="data_nacimento" class="form-label">Data de Nascimento</label>
+                        <input type="date" class="form-control" name="data_nacimento" >
                     </div>
                 </div>
                 <div class="row">
