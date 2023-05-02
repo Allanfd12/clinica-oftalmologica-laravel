@@ -60,7 +60,7 @@ class UserController extends Controller
             $usuario->pessoa_id = $pessoa->id;
             $usuario->name = $pessoa->nome;
             $usuario->email = $pessoa->email;
-            $usuario->password = Hash::make($request->newPassword);
+            $usuario->password = Hash::make($request->password);
             $usuario->save();
         });
 
@@ -106,6 +106,7 @@ class UserController extends Controller
 
         $usuario->name = $pessoa->nome;
         $usuario->email = $pessoa->email;
+        $usuario->password = Hash::make($request->password);
         $usuario->save();
 
         DB::commit();

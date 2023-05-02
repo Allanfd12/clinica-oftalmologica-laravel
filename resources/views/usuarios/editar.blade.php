@@ -38,6 +38,16 @@
                         <input type="tel" class="form-control" name="telefone" value="{{ $user->pessoa->telefone }}">
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <label for="password" class="form-label">Senha</label>
+                        <input type="text" class="form-control" name="password" >
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <label for="password" class="form-label">Confirmar Senha</label>
+                        <input type="text" class="form-control" name="password" >
+                    </div>
+                </div>
                 <button class="btn btn-primary d-grid gap-2 col-3 mx-auto" type="submit">Salvar</button>
             </form>
         </div>
