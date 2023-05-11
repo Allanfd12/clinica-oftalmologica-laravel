@@ -37,7 +37,7 @@
                             class="material-symbols-outlined icon">
                             medical_services
                         </span> Consultas</a></li>
-                <li class="p-1 mb-2"><a href="#" class="text-decoration-none d-block"><span
+                <li class="p-1 mb-2 @if (Route::is('medicos.list')) active @endif"><a href="{{ route('medicos.list') }}"class="text-decoration-none d-block"><span
                             class="material-symbols-outlined icon">
                             stethoscope
                         </span> Médicos</a></li>

@@ -19,8 +19,8 @@ class MedicoFactory extends Factory
 
         return [
             'users_id' => \App\Models\User::factory(),
-            'crm' => $this->faker->text(20),
-            'especialidade' => $this->faker->text(100),
+            'crm' => $this->faker->numberBetween(100000, 999999).'/'.strtoupper($this->faker->randomLetter.$this->faker->randomLetter),
+            'especialidade' => $this->faker->text(20),
         ];
     }
 }
