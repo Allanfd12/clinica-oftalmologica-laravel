@@ -38,6 +38,7 @@
                         <input type="tel" class="form-control" name="telefone"  value="{{ $paciente->pessoa->telefone }}" disabled>
                     </div>
                 </div>
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center mt-2 mb-3 border-bottom"></div>
                 <div class="row">
                     <div class="col-md-4 mb-3">
                         <label for="rua" class="form-label">Rua</label>

@@ -35,7 +35,41 @@
                         <input type="tel" class="form-control" name="telefone" value="{{ $user->pessoa->telefone }}" disabled>
                     </div>
                 </div>
-                
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center mt-2 mb-3 border-bottom"></div>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="rua" class="form-label">Rua</label>
+                        <input type="text" class="form-control" name="rua" value="{{ $user->pessoa->endereco->rua }}" disabled>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="numero" class="form-label">Número</label>
+                        <input type="text" class="form-control" name="numero" value="{{ $user->pessoa->endereco->numero }}" disabled>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="cep" class="form-label">CEP</label>
+                        <input type="text" class="form-control" name="cep" value="{{ $user->pessoa->endereco->cep }}" disabled>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="bairro" class="form-label">Bairro</label>
+                        <input type="text" class="form-control" name="bairro" value="{{ $user->pessoa->endereco->bairro }}" disabled>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="cidade" class="form-label">Cidade</label>
+                        <input type="text" class="form-control" name="cidade" value="{{ $user->pessoa->endereco->cidade }}" disabled>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="estado" class="form-label">Estado</label>
+                        <input type="text" class="form-control" name="estado" value="{{ $user->pessoa->endereco->estado }}" disabled>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <label for="complemento" class="form-label">Complemento</label>
+                        <input type="text" class="form-control" name="complemento" value="{{ $user->pessoa->endereco->complemento }}" disabled>
+                    </div>
+                </div>
                 <a class="btn btn-primary d-grid gap-2 col-3 mx-auto" href="{{ route('usuarios.list') }}">Voltar</a>
         </div>
     </div>
