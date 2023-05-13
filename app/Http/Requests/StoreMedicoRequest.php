@@ -11,7 +11,7 @@ class StoreMedicoRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,7 +21,10 @@ class StoreMedicoRequest extends FormRequest
      */
     public function rules(): array
     {
+ 
         return [
+                'password' => 'required|min:1|confirmed',
+
             //
         ];
     }

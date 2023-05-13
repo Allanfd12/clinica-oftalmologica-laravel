@@ -6,10 +6,12 @@ use App\Models\Medico;
 use App\Http\Requests\StoreMedicoRequest;
 use App\Http\Requests\UpdateMedicoRequest;
 use App\Models\Pessoa;
+use App\Models\User;
 use App\Models\Endereco;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Hash;
 
 class MedicoController extends Controller
 {
@@ -70,8 +72,18 @@ class MedicoController extends Controller
             $pessoa->endereco_id = $endereco->id;
             $pessoa->save();
 
+            $usuario = new User();
+            $usuario->pessoa_id = $pessoa->id;
+            $usuario->name = $pessoa->nome;
+            $usuario->email = $pessoa->email;
+            $usuario->password = Hash::make($request->password);
+            $usuario->save();
+
             $medico = new Medico();
-            $medico->pessoa_id = $pessoa->id;
+            $medico->users_id = $usuario->id;
+            $medico->crm = $request->crm;
+            $medico->especialidade = $request->especialidade;
+
             $medico->save();
         });
         return redirect()->route('medicos.list');
@@ -83,7 +95,6 @@ class MedicoController extends Controller
     public function show($id)
     {
         $medico = Medico::with(['user', 'user.pessoa','user.pessoa.endereco'])->findOrFail($id);
-        //dd($medico );
         return view('medicos.visualizar', compact('medico'));
     }
 
@@ -92,8 +103,7 @@ class MedicoController extends Controller
      */
     public function edit($id)
     {
-        $medico = Medico::with(['pessoa', 'pessoa.endereco'])->findOrFail($id);
-       // dd($medico->pessoa->endereco->rua);
+        $medico = Medico::with(['user', 'user.pessoa','user.pessoa.endereco'])->findOrFail($id);
 
         return view('medicos.editar', compact('medico'));
     }
@@ -106,9 +116,9 @@ class MedicoController extends Controller
         
         DB::beginTransaction();
 
-        $medico = Medico::with(['pessoa', 'pessoa.endereco'])->findOrFail($id);
-
-        $endereco = $medico->pessoa->endereco;
+        $medico = Medico::with(['user', 'user.pessoa','user.pessoa.endereco'])->findOrFail($id);
+        
+        $endereco = $medico->user->pessoa->endereco;
 
         $endereco->rua = $request->rua;
         $endereco->numero = $request->numero;
@@ -119,14 +129,26 @@ class MedicoController extends Controller
         $endereco->complemento = $request->complemento;
         $endereco->save();
 
-        $pessoa = $medico->pessoa;
-
+        $pessoa = $medico->user->pessoa;
         $pessoa->nome = $request->nome;
         $pessoa->cpf = preg_replace('/[^0-9]/', '', $request->cpf);
-        $pessoa->data_nacimento = Carbon::parse($request->data_nacimento)->format('Y-m-d');
+        $pessoa->data_nacimento = Carbon::parse($request->data_nacimento)->format('Y-m-d');;
         $pessoa->email = $request->email;
         $pessoa->telefone = $request->telefone;
         $pessoa->save();
+
+        $usuario = $medico->user;
+        $usuario->name = $pessoa->nome;
+        $usuario->email = $pessoa->email;
+        
+        if($request->password != null){
+            $usuario->password = Hash::make($request->password);
+        }
+        $usuario->save();
+
+        $medico->crm = $request->crm;
+        $medico->especialidade = $request->especialidade;
+
         $medico->save();
 
         DB::commit();
@@ -140,8 +162,13 @@ class MedicoController extends Controller
      */
     public function destroy($id)
 {
-    $medico = Medico::findOrFail($id);
+    $medico = Medico::with(['user', 'user.pessoa','user.pessoa.endereco'])->findOrFail($id);
+    DB::beginTransaction();
     $medico->delete();
+    $medico->user->delete();
+    $medico->user->pessoa->delete();
+    $medico->user->pessoa->endereco->delete();
+    DB::commit();
 
     return redirect()->route('medicos.list')->with('success', 'Medico deletado com sucesso!');
 }

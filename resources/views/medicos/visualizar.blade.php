@@ -19,11 +19,11 @@
                     </div>
                     <div class="col-md-4 mb-4" >
                         <label for="name" class="form-label">Especialidade</label>
-                        <input type="text" class="form-control" name="nome" value="{{ $medico->especialidade }}" disabled>
+                        <input type="text" class="form-control" name="especialidade" value="{{ $medico->especialidade }}" disabled>
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="cpf" class="form-label">CRM</label>
-                        <input type="text" class="form-control" name="cpf" value="{{ $medico->crm }}" disabled>
+                        <input type="text" class="form-control" name="crm" value="{{ $medico->crm }}" disabled>
                     </div>
                     
                 </div>

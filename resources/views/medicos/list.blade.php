@@ -58,13 +58,6 @@
                               </div>
                             </div>
                           </div>
-                        {{-- <form method="POST" id='delete_form' action="{{ route('medicos.excluir', $medico->id) }}"  style="display: inline">
-                            @csrf
-                            @method('DELETE')
-                            <a href="javascript:{}" onclick="confirm('Are you sure?') ? document.getElementById('delete_form').submit():null; return false;" class="link-secondary"><span class="material-symbols-outlined fs-4">
-                                delete
-                                </span></a>
-                        </form> --}}
                         
                     </td>
                 </tr>
