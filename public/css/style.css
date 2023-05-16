@@ -55,3 +55,7 @@ hr.h-color {
     background-color: #20B2AA;
     color: white;
 }
+
+.invalid-cpf {
+    border-color: red !important;
+}

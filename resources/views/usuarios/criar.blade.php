@@ -16,11 +16,11 @@
                 <div class="row">
                     <div class="col-md-4 mb-4" >
                         <label for="name" class="form-label">Nome</label>
-                        <input type="text" class="form-control" name="nome" >
+                        <input type="text" class="form-control" name="nome" maxlength="255" required >
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="cpf" class="form-label">CPF</label>
-                        <input type="text" class="form-control cpf" name="cpf" >
+                        <input type="text" class="form-control cpf" name="cpf" required >
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="data_nascimento" class="form-label">Data de Nascimento</label>
@@ -34,7 +34,7 @@
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="telefone" class="form-label">Telefone</label>
-                        <input type="tel" class="form-control" name="telefone" >
+                        <input type="tel" class="form-control telefone" name="telefone" required >
                     </div>
                 </div>
                 <div class="row">

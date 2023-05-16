@@ -14,15 +14,15 @@
                 <div class="row">
                     <div class="col-md-4 mb-4" >
                         <label for="name" class="form-label">Nome</label>
-                        <input type="text" class="form-control" name="nome" value="{{ $user->pessoa->nome }}" disabled>
+                        <input type="text" class="form-control" name="nome" maxlength="255" required value="{{ $user->pessoa->nome }}" disabled>
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="cpf" class="form-label">CPF</label>
-                        <input type="text" class="form-control cpf" name="cpf" value="{{ $user->pessoa->cpf }}" disabled>
+                        <input type="text" class="form-control cpf" name="cpf" required value="{{ $user->pessoa->cpf }}" disabled>
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="data_nacimento" class="form-label">Data de Nascimento</label>
-                        <input type="date" class="form-control" name="data_nacimento" value="{{ \Carbon\Carbon::parse($user->pessoa->data_nacimento)->format('Y-m-d') }}" disabled>
+                        <input type="date" class="form-control" name="data_nacimento" min="1900-01-01" max="{{date('Y-m-d')}}" required value="{{ \Carbon\Carbon::parse($user->pessoa->data_nacimento)->format('Y-m-d') }}" disabled>
                     </div>
                 </div>
                 <div class="row">
@@ -32,7 +32,7 @@
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="telefone" class="form-label">Telefone</label>
-                        <input type="tel" class="form-control" name="telefone" value="{{ $user->pessoa->telefone }}" disabled>
+                        <input type="tel" class="form-control telefone" name="telefone" required value="{{ $user->pessoa->telefone }}" disabled>
                     </div>
                 </div>
 

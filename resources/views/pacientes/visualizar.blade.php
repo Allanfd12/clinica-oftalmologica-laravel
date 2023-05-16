@@ -17,15 +17,15 @@
                 <div class="row">
                     <div class="col-md-4 mb-4" >
                         <label for="nome" class="form-label">Nome</label>
-                        <input type="text" class="form-control" name="nome" value="{{ $paciente->pessoa->nome }}" disabled>
+                        <input type="text" class="form-control" name="nome" maxlength="255" required value="{{ $paciente->pessoa->nome }}" disabled>
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="cpf" class="form-label">CPF</label>
-                        <input type="text" class="form-control cpf" name="cpf" value="{{ $paciente->pessoa->cpf }}" disabled>
+                        <input type="text" class="form-control cpf" name="cpf" required value="{{ $paciente->pessoa->cpf }}" disabled>
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="data_nacimento" class="form-label">Data de Nascimento</label>
-                        <input type="date" class="form-control" name="data_nacimento" value="{{ $paciente->pessoa->data_nacimento }}" disabled>
+                        <input type="date" class="form-control" name="data_nacimento" min="1900-01-01" max="{{date('Y-m-d')}}" required value="{{ $paciente->pessoa->data_nacimento }}" disabled>
                     </div>
                 </div>
                 <div class="row">
@@ -35,7 +35,7 @@
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="telefone" class="form-label">Telefone</label>
-                        <input type="tel" class="form-control" name="telefone"  value="{{ $paciente->pessoa->telefone }}" disabled>
+                        <input type="tel" class="form-control telefone" name="telefone" required  value="{{ $paciente->pessoa->telefone }}" disabled>
                     </div>
                 </div>
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center mt-2 mb-3 border-bottom"></div>

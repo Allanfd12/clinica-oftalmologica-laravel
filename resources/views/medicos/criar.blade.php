@@ -17,7 +17,7 @@
 
                     <div class="col-md-4 mb-4" >
                         <label for="name" class="form-label">Nome</label>
-                        <input type="text" class="form-control" name="nome" />
+                        <input type="text" class="form-control" name="nome" maxlength="255" required />
                     </div>
                     <div class="col-md-4 mb-4" >
                         <label for="name" class="form-label">Especialidade</label>
@@ -32,11 +32,11 @@
                 <div class="row">
                     <div class="col-md-4 mb-4">
                         <label for="cpf" class="form-label">CPF</label>
-                        <input type="text" class="form-control cpf" name="cpf" />
+                        <input type="text" class="form-control cpf" name="cpf" required />
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="data_nacimento" class="form-label">Data de Nascimento</label>
-                        <input type="date" class="form-control" name="data_nacimento" />
+                        <input type="date" class="form-control" name="data_nacimento" min="1900-01-01" max="{{date('Y-m-d')}}" required />
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="email" class="form-label">E-mail</label>
@@ -47,7 +47,7 @@
                 <div class="row">
                     <div class="col-md-4 mb-4">
                         <label for="telefone" class="form-label">Telefone</label>
-                        <input type="tel" class="form-control" name="telefone" />
+                        <input type="tel" class="form-control telefone" name="telefone" required />
                     </div>
                 </div>
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center mt-2 mb-3 border-bottom"></div>
