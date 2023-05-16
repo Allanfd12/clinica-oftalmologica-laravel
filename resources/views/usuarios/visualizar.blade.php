@@ -18,7 +18,7 @@
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="cpf" class="form-label">CPF</label>
-                        <input type="text" class="form-control" name="cpf" value="{{ $user->pessoa->cpf }}" disabled>
+                        <input type="text" class="form-control cpf" name="cpf" value="{{ $user->pessoa->cpf }}" disabled>
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="data_nacimento" class="form-label">Data de Nascimento</label>
@@ -28,14 +28,14 @@
                 <div class="row">
                     <div class="col-md-4 mb-4">
                         <label for="email" class="form-label">E-mail</label>
-                        <input type="email" class="form-control" name="email" value="{{ $user->pessoa->email }}" disabled>
+                        <input type="email" class="form-control email" name="email" value="{{ $user->pessoa->email }}" disabled>
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="telefone" class="form-label">Telefone</label>
                         <input type="tel" class="form-control" name="telefone" value="{{ $user->pessoa->telefone }}" disabled>
                     </div>
                 </div>
-                
+
                 <a class="btn btn-primary d-grid gap-2 col-3 mx-auto" href="{{ route('usuarios.list') }}">Voltar</a>
         </div>
     </div>

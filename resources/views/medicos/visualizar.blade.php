@@ -12,7 +12,7 @@
         </h4>
         <div class="card-body">
                 <div class="row">
-                   
+
                     <div class="col-md-4 mb-4" >
                         <label for="name" class="form-label">Nome</label>
                         <input type="text" class="form-control" name="nome" value="{{ $medico->user->pessoa->nome }}" disabled>
@@ -25,12 +25,12 @@
                         <label for="cpf" class="form-label">CRM</label>
                         <input type="text" class="form-control" name="crm" value="{{ $medico->crm }}" disabled>
                     </div>
-                    
+
                 </div>
                 <div class="row">
                     <div class="col-md-4 mb-4">
                         <label for="cpf" class="form-label">CPF</label>
-                        <input type="text" class="form-control" name="cpf" value="{{ $medico->user->pessoa->cpf }}" disabled>
+                        <input type="text" class="form-control cpf" name="cpf" value="{{ $medico->user->pessoa->cpf }}" disabled>
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="data_nacimento" class="form-label">Data de Nascimento</label>
@@ -38,9 +38,9 @@
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="email" class="form-label">E-mail</label>
-                        <input type="email" class="form-control" name="email" value="{{ $medico->user->pessoa->email }}" disabled>
+                        <input type="email" class="form-control email" name="email" value="{{ $medico->user->pessoa->email }}" disabled>
                     </div>
-                    
+
                 </div>
                 <div class="row">
                     <div class="col-md-4 mb-4">

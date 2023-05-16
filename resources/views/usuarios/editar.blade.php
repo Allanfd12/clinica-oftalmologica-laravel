@@ -21,7 +21,7 @@
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="cpf" class="form-label">CPF</label>
-                        <input type="text" class="form-control" name="cpf" value="{{ $user->pessoa->cpf }}">
+                        <input type="text" class="form-control cpf" name="cpf" value="{{ $user->pessoa->cpf }}">
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="data_nacimento" class="form-label">Data de Nascimento</label>
@@ -31,7 +31,7 @@
                 <div class="row">
                     <div class="col-md-4 mb-4">
                         <label for="email" class="form-label">E-mail</label>
-                        <input type="email" class="form-control" name="email" value="{{ $user->pessoa->email }}">
+                        <input type="email" class="form-control email" name="email" value="{{ $user->pessoa->email }}">
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="telefone" class="form-label">Telefone</label>
