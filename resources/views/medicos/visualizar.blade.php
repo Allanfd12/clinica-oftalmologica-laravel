@@ -83,7 +83,7 @@
                         <input type="text" class="form-control" name="complemento" value="{{ $medico->user->pessoa->endereco->complemento }}" disabled>
                     </div>
                 </div>
-                <a class="btn btn-primary d-grid gap-2 col-3 mx-auto" href="{{ route('usuarios.list') }}">Voltar</a>
+                <a class="btn btn-primary d-grid gap-2 col-3 mx-auto" href="{{ route('medicos.list') }}">Voltar</a>
         </div>
     </div>
 @endsection

@@ -38,7 +38,7 @@
                         <a href="{{ route('pacientes.visualizar', $paciente->id) }}" class="link-secondary"><span class="material-symbols-outlined fs-4">visibility</span></a>
                         <a type="button" class="link-secondary" data-bs-toggle="modal" data-bs-target="#idModal{{ $paciente->id }}"><span class="material-symbols-outlined fs-4">delete</span></a>
 
-                        <!-- Modal -->
+                    <!-- Modal -->""
                         <div class="modal fade" id="idModal{{ $paciente->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static">
                             <div class="modal-dialog modal-dialog-centered">
                               <div class="modal-content">
@@ -56,7 +56,7 @@
                               </div>
                             </div>
                           </div>
-                        {{-- <form method="POST" id='delete_form' action="{{ route('pacientes.excluir', $paciente->id) }}"  style="display: inline">
+                        {{-- <form method="POST" id='delete_form' action="{{ route('pacientes.excluir', $paciente->id) }}"  style="display: inline" >
                             @csrf
                             @method('DELETE')
                             <a href="javascript:{}" onclick="confirm('Are you sure?') ? document.getElementById('delete_form').submit():null; return false;" class="link-secondary"><span class="material-symbols-outlined fs-4">
