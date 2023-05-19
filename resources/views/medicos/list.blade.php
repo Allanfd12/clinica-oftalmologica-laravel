@@ -24,7 +24,7 @@
                         <th class="col-1" scope="col">ID</th>
                         <th class="col-4" scope="col">Nome</th>
                         <th class="col-3" scope="col">Especialidade</th>
-                        <th class="col-2" scope="col">Crm</th>
+                        <th class="col-2" scope="col">CRM</th>
                         <th class="col-2" scope="col">Ações</th>
                     </tr>
                 </thead>
