@@ -41,7 +41,7 @@
                             class="material-symbols-outlined icon">
                             stethoscope
                         </span> Médicos</a></li>
-                <li class="p-1 mb-2"><a href="#" class="text-decoration-none d-block"><span
+                <li class="p-1 mb-2 @if (Route::is('prontuarios.list')) active @endif"><a href="{{ route('prontuarios.list') }}" class="text-decoration-none d-block"><span
                             class="material-symbols-outlined icon">
                             assignment
                         </span> Prontuários</a></li>
