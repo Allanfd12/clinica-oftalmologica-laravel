@@ -34,7 +34,7 @@
                     <td>{{$prontuario->nome}}</td>
                     <td>{{$prontuario->updated_at_formatted}}</td>
                     <td>
-                        <a href="#" class="link-secondary"><span class="material-symbols-outlined fs-4">edit_square</span></a>
+                        <a href="{{ route('prontuarios.editar', $prontuario -> id) }}" class="link-secondary"><span class="material-symbols-outlined fs-4">edit_square</span></a>
                         <a href="#" class="link-secondary"><span class="material-symbols-outlined fs-4">visibility</span></a>
                         <a type="button" class="link-secondary" data-bs-toggle="modal" data-bs-target="#idModal{{ $prontuario->id }}"><span class="material-symbols-outlined fs-4">delete</span></a>
 
@@ -51,7 +51,7 @@
                                 </div>
                                 <div class="modal-footer">
                                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                  <a type="button" class="btn btn-danger" href="#">Excluir</a>
+                                  <a type="button" class="btn btn-danger" href="{{ route('prontuarios.excluir', $prontuario->id) }}">Excluir</a>
                                 </div>
                               </div>
                             </div>

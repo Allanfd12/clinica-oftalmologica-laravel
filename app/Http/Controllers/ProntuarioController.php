@@ -34,4 +34,19 @@ class ProntuarioController extends Controller
         $prontuarios = Prontuario::all();
         return view('prontuarios.criar', compact('prontuarios'));
     }
+
+    public function edit($id)
+    {
+        $prontuario = Prontuario::with(['pessoa', 'pessoa.nome'])->findOrFail($id);
+
+        return view('prontuarios.editar', compact('prontuario'));
+    }
+
+    public function destroy($id)
+    {
+        $registro = Prontuario::find($id);
+        $registro->delete();
+
+        return redirect()->route('prontuarios.list');
+    }
 }
