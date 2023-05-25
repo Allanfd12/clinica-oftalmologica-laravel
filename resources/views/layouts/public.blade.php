@@ -33,7 +33,7 @@
                         class="text-decoration-none d-block"><span class="material-symbols-outlined icon">
                             patient_list
                         </span> Pacientes</a></li>
-                <li class="p-1 mb-2"><a href="#" class="text-decoration-none d-block"><span
+                <li class="p-1 mb-2 @if (Route::is('consultas.list')) active @endif"><a href="{{ route('consultas.list') }}" class="text-decoration-none d-block"><span
                             class="material-symbols-outlined icon">
                             medical_services
                         </span> Consultas</a></li>

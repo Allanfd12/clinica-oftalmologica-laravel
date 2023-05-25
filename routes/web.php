@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ConsultaController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PacienteController;
@@ -48,6 +49,12 @@ Route::get('/medicos/{id}/editar', [MedicoController::class, 'edit'])->name('med
 Route::patch('/medicos/{id}/atualizar', [MedicoController::class, 'update'])->name('medicos.atualizar');
 Route::get('/medicos/{id}/visualizar', [MedicoController::class, 'show'])->name('medicos.visualizar');
 Route::get('/medicos/{id}/excluir', [MedicoController::class, 'destroy'])->name('medicos.excluir');
+
+//ROTAS DA CONSULTA
+Route::get('/consultas', [ConsultaController::class, 'index'])->name('consultas.list');
+Route::get('/consultas/criar', [ConsultaController::class, 'create'])->name('consultas.criar');
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
