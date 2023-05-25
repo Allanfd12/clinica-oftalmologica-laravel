@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\MedicoController;
+use App\Http\Controllers\ProntuarioController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -49,6 +50,12 @@ Route::get('/medicos/{id}/editar', [MedicoController::class, 'edit'])->name('med
 Route::patch('/medicos/{id}/atualizar', [MedicoController::class, 'update'])->name('medicos.atualizar');
 Route::get('/medicos/{id}/visualizar', [MedicoController::class, 'show'])->name('medicos.visualizar');
 Route::get('/medicos/{id}/excluir', [MedicoController::class, 'destroy'])->name('medicos.excluir');
+
+//ROTAS DOS PRONTUÁRIOS
+Route::get('/prontuarios', [ProntuarioController::class, 'index'])->name('prontuarios.list');
+Route::get('/prontuarios/criar', [ProntuarioController::class, 'create'])->name('prontuarios.criar');
+Route::get('/prontuarios/{id}/editar', [ProntuarioController::class, 'edit'])->name('prontuarios.editar');
+Route::get('/prontuarios/{id}/excluir', [ProntuarioController::class, 'destroy'])->name('prontuarios.excluir');
 
 //ROTAS DA CONSULTA
 Route::get('/consultas', [ConsultaController::class, 'index'])->name('consultas.list');
