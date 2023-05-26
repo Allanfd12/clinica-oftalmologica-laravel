@@ -36,10 +36,23 @@ class ProntuarioController extends Controller
     }
 
     public function edit($id)
-    {
-        $prontuario = Prontuario::with(['pessoa', 'pessoa.nome'])->findOrFail($id);
+    {   
+        $prontuario = Prontuario::findOrFail($id);
+        $paciente = $prontuario->paciente;
+        $nome = $paciente->pessoa->nome;
+        $cpf = $paciente->pessoa->cpf;
 
-        return view('prontuarios.editar', compact('prontuario'));
+        return view('prontuarios.editar', compact('prontuario', 'nome', 'cpf'));
+    }
+
+    public function show($id)
+    {
+        $prontuario = Prontuario::findOrFail($id);
+        $paciente = $prontuario->paciente;
+        $nome = $paciente->pessoa->nome;
+        $cpf = $paciente->pessoa->cpf;
+
+        return view('prontuarios.visualizar', compact('prontuario', 'nome', 'cpf'));
     }
 
     public function destroy($id)

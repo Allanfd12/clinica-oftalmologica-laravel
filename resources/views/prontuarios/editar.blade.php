@@ -3,7 +3,7 @@
 @section('title', 'Ophtamuls - Prontuário')
 
 @section('content')
-<h2 style="text-align: center; margin-top: 2%; color: #20B2AA">Editar Paciente</h2>
+<h2 style="text-align: center; margin-top: 2%; color: #20B2AA">Editar Prontuário</h2>
     <hr style="margin-top: 1%; margin-bottom: 1%;" class="linha-home">
 
     <div class="card" style="width: 90%; margin: auto">
@@ -16,12 +16,12 @@
                 @method('patch')
                 <div class="row">
                     <div class="col-md-4 mb-4" >
-                        <label for="nome" class="form-label">Paciente</label>
-                        <input type="text" class="form-control" name="nome" maxlength="255" value="{{ $prontuario->pessoa->nome }}">
+                        <label for="paciente" class="form-label">Paciente</label>
+                        <input type="text" class="form-control" name="paciente" maxlength="255" value="{{ $prontuario->paciente->pessoa->nome }}">
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="cpf" class="form-label">CPF</label>
-                        <input type="text" class="form-control cpf" name="cpf" required value="{{ $prontuario->cpf }}">
+                        <input type="text" class="form-control cpf" name="cpf" required value="{{ $prontuario->paciente->pessoa->cpf }}">
                     </div>
                     <div class="col-md-6 mb-4">
                         <label for="descricao" class="form-label">Descrição</label>
@@ -38,8 +38,10 @@
                         <input type="text" class="form-control" name="rua" value="{{ $prontuario->conduta }}">
                     </div>
                 </div>
-
-                <button class="btn btn-primary d-grid gap-2 col-3 mx-auto" type="submit">Atualizar</button>
+                <div class="d-flex justify-content-between">
+                    <a class="btn btn-primary d-grid gap-2 col-3 mx-auto" href="{{ route('usuarios.list') }}">Voltar</a>
+                    <button class="btn btn-primary d-grid gap-2 col-3 mx-auto" type="submit">Atualizar</button>
+                </div>
             </form>
         </div>
     </div>
