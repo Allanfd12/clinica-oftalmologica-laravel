@@ -15,6 +15,11 @@ class Paciente extends Model
         return $this->belongsTo(Pessoa::class);
     }
 
+    public function prontuario()
+    {
+        return $this->hasOne(Prontuario::class);
+    }
+
     use SoftDeletes;
 
     protected $dates = ['deleted_at'];

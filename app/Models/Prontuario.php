@@ -9,9 +9,9 @@ class Prontuario extends Model
 {
     use HasFactory;
 
-    public function pessoa()
+    public function paciente()
     {
-        return $this->belongsTo(Pessoa::class);
+        return $this->belongsTo(Paciente::class);
     }
     
     protected $table = 'prontuarios';

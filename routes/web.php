@@ -55,6 +55,7 @@ Route::get('/medicos/{id}/excluir', [MedicoController::class, 'destroy'])->name(
 Route::get('/prontuarios', [ProntuarioController::class, 'index'])->name('prontuarios.list');
 Route::get('/prontuarios/criar', [ProntuarioController::class, 'create'])->name('prontuarios.criar');
 Route::get('/prontuarios/{id}/editar', [ProntuarioController::class, 'edit'])->name('prontuarios.editar');
+Route::get('/prontuarios/{id}/visualizar', [ProntuarioController::class, 'show'])->name('prontuarios.visualizar');
 Route::get('/prontuarios/{id}/excluir', [ProntuarioController::class, 'destroy'])->name('prontuarios.excluir');
 
 //ROTAS DA CONSULTA
