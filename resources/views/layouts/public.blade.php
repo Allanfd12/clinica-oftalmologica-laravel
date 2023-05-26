@@ -80,26 +80,21 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-white" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                Nome do Usuário
+                                {{ Auth::user()->name }}
                             </a>
                             <ul class="dropdown-menu">
                                 @if (Route::has('login'))
                                     @auth
-                                        <li><a href="{{ url('/dashboard') }}" class="dropdown-item">Dashboard</a></li>
-                                    @else
-                                        <li><a href="{{ route('login') }}" class="dropdown-item">Log in</a></li>
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
-                                        @if (Route::has('register'))
-                                            <li><a href="{{ route('register') }}" class="dropdown-item">Register</a></li>
-                                        @endif
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <li><a class="dropdown-item" href="#" onclick="event.preventDefault();
+                                            this.closest('form').submit();" >Log Out</a></li>
+
+                                    </form>
+
                                     @endauth
                                 @endif
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Log Out</a></li>
+
                             </ul>
                         </li>
                     </ul>

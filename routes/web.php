@@ -18,11 +18,11 @@ use App\Http\Controllers\UserController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
-
+// group
+Route::middleware('auth')->group(function () {
+    Route::get('/', function () {
+        return view('welcome');
+    })->name('home');
 //ROTAS DO PACIENTE
 Route::get('/pacientes', [PacienteController::class, 'index'])->name('pacientes.list');
 Route::get('/pacientes/criar', [PacienteController::class, 'create'])->name('pacientes.criar');
@@ -62,12 +62,6 @@ Route::get('/consultas', [ConsultaController::class, 'index'])->name('consultas.
 Route::get('/consultas/criar', [ConsultaController::class, 'create'])->name('consultas.criar');
 
 
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
