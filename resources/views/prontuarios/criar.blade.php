@@ -16,15 +16,34 @@
                 <div class="row">
                     <div class="col-md-4 mb-4" >
                         <label for="name" class="form-label">Paciente</label>
-                        <select class="form-select" name="paciente_id" required>
-                            <option value="" selected disabled hidden>Selecione um paciente</option>
-                            @foreach($prontuarios as $prontuario)
-                                <option value="{{$prontuario->id}}">{{$prontuario->nome}}</option>
-                            @endforeach
+                        
                     </div>
+
                     <div class="col-md-4 mb-4">
-                        <label for="cpf" class="form-label">CPF</label>
-                        <input type="text" class="form-control cpf" name="cpf" required >
+                        <label for="grau" class="form-label">Grau</label>
+                        <input type="text" class="form-control" name="grau" required>
+                    </div>
+
+                    <div class="col-md-4 mb-4">
+                        <label for="biomicoscopia" class="form-label">Biomicoscopia</label>
+                        <input type="text" class="form-control" name="biomicoscopia" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <label for="qp" class="form-label">Queixa Principal</label>
+                        <input type="text" class="form-control" name="qp" required>
+                    </div>
+
+                    <div class="col-md-4 mb-4">
+                        <label for="conduta" class="form-label">Conduta</label>
+                        <input type="text" class="form-control" name="conduta" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <label for="descricao" class="form-label">Descrição</label>
+                        <input type="text" class="form-control" name="descricao" required>
                     </div>
                 </div>
                 <button class="btn btn-primary d-grid gap-2 col-3 mx-auto" type="submit">Salvar</button>

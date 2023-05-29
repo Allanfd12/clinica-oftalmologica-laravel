@@ -31,8 +31,7 @@ class ProntuarioController extends Controller
 
     public function create()
     {
-        $prontuarios = Prontuario::all();
-        return view('prontuarios.criar', compact('prontuarios'));
+        return view('prontuarios.criar');
     }
 
     public function edit($id)

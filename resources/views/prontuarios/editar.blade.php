@@ -21,25 +21,25 @@
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="cpf" class="form-label">CPF</label>
-                        <input type="text" class="form-control cpf" name="cpf" required value="{{ $prontuario->paciente->pessoa->cpf }}">
+                        <input type="text" class="form-control cpf" name="cpf" required value="{{ $prontuario->paciente->pessoa->cpf }}" disabled>
                     </div>
-                    <div class="col-md-6 mb-4">
+                    <div class="col-md-4 mb-4">
                         <label for="descricao" class="form-label">Descrição</label>
-                        <input type="text" class="form-control form-control-lg" name="descricao"  value="{{ $prontuario->descricao }}">
+                        <input type="text" class="form-control" name="descricao"  value="{{ $prontuario->descricao }}">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4 mb-4">
-                        <label for="telefone" class="form-label">Queixa Principal</label>
-                        <input type="text" class="form-control" name="rua" required  value="{{ $prontuario->qp }}">
+                        <label for="qp" class="form-label">Queixa Principal</label>
+                        <input type="text" class="form-control" name="qp" required  value="{{ $prontuario->qp }}">
                     </div>
                     <div class="col-md-4 mb-3">
-                        <label for="rua" class="form-label">Conduta</label>
-                        <input type="text" class="form-control" name="rua" value="{{ $prontuario->conduta }}">
+                        <label for="conduta" class="form-label">Conduta</label>
+                        <input type="text" class="form-control" name="conduta" value="{{ $prontuario->conduta }}">
                     </div>
                 </div>
                 <div class="d-flex justify-content-between">
-                    <a class="btn btn-primary d-grid gap-2 col-3 mx-auto" href="{{ route('usuarios.list') }}">Voltar</a>
+                    <a class="btn btn-primary d-grid gap-2 col-3 mx-auto" href="{{ route('prontuarios.list') }}">Voltar</a>
                     <button class="btn btn-primary d-grid gap-2 col-3 mx-auto" type="submit">Atualizar</button>
                 </div>
             </form>
