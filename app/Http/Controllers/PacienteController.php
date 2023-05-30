@@ -10,6 +10,7 @@ use App\Models\Endereco;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class PacienteController extends Controller
 {
@@ -27,6 +28,14 @@ class PacienteController extends Controller
         return view('pacientes.list',['pacientes'=> $pacientes, 'search' => $search]);
     }
 
+    public function getAllSearch(Request $request){
+        $pacientes = Paciente::join('pessoas', 'pacientes.pessoa_id', '=', 'pessoas.id')
+            ->select('pacientes.id', 'pessoas.nome')
+            ->where('pessoas.nome', 'like', "%{$request->nome}%")
+            ->limit(15)->get();
+
+        return $pacientes;
+    }
     /**
      * Show the form for creating a new resource.
      */
