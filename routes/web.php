@@ -61,11 +61,16 @@ Route::get('/prontuarios/{id}/excluir', [ProntuarioController::class, 'destroy']
 //ROTAS DA CONSULTA
 Route::get('/consultas', [ConsultaController::class, 'index'])->name('consultas.list');
 Route::get('/consultas/criar', [ConsultaController::class, 'create'])->name('consultas.criar');
+Route::get('/consultas/{id}/editar', [ConsultaController::class, 'edit'])->name('consultas.editar');
+Route::get('/consultas/{id}/visualizar', [ConsultaController::class, 'show'])->name('consultas.visualizar');
 
 
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+//ROTAS DO PERFIL
+Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
 });
 
 require __DIR__.'/auth.php';

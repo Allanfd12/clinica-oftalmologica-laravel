@@ -35,10 +35,10 @@ class ConsultaController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    // public function create()
-    // {
-    //     return view('pacientes.criar');
-    // }
+    public function create()
+    {
+        return view('consultas.criar');
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -82,22 +82,21 @@ class ConsultaController extends Controller
     /**
      * Display the specified resource.
      */
-    // public function show($id)
-    // {
-    //     $paciente = Paciente::with(['pessoa', 'pessoa.endereco'])->findOrFail($id);
-    //     return view('pacientes.visualizar', compact('paciente'));
-    // }
+    public function show($id)
+    {
+       // $paciente = Paciente::with(['pessoa', 'pessoa.endereco'])->findOrFail($id);
+        return view('pacientes.visualizar', compact('consulta'));
+    }
 
     /**
      * Show the form for editing the specified resource.
      */
-    // public function edit($id)
-    // {
-    //     $paciente = Paciente::with(['pessoa', 'pessoa.endereco'])->findOrFail($id);
-    //    // dd($paciente->pessoa->endereco->rua);
+    public function edit($id)
+    {
+        //$paciente = Consulta::with(['pessoa', 'pessoa.endereco'])->findOrFail($id);
 
-    //     return view('pacientes.editar', compact('paciente'));
-    // }
+        return view('consultas.editar');
+    }
 
     /**
      * Update the specified resource in storage.

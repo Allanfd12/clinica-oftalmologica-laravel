@@ -31,11 +31,11 @@
                    @foreach($consultas as $consulta)
                 <tr>
                     <td scope="row">{{$consulta->id}}</td>
-                    <td scope="row">{{$consulta->id}}</td>
-                    <td scope="row">{{$consulta->id}}</td>
+                    <td scope="row">Teste</td>
+                    <td scope="row">Teste</td>
                     <td>
-                        <a href="" class="link-secondary"><span class="material-symbols-outlined fs-4">edit_square</span></a>
-                        <a href="" class="link-secondary"><span class="material-symbols-outlined fs-4">visibility</span></a>
+                        <a href="{{ route('consultas.editar', $consulta -> id) }}" class="link-secondary"><span class="material-symbols-outlined fs-4">edit_square</span></a>
+                        <a href="{{ route('consultas.visualizar', $consulta -> id) }}" class="link-secondary"><span class="material-symbols-outlined fs-4">visibility</span></a>
                         <a type="button" class="link-secondary" data-bs-toggle="modal" data-bs-target="#"><span class="material-symbols-outlined fs-4">delete</span></a>
 
                     <!-- Modal -->

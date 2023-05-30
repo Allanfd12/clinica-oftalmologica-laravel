@@ -10,12 +10,12 @@ class Consulta extends Model
     use HasFactory;
     public function medico()
     {
-        return $this->belongsTo(Medico::class, 'users_id');
+        return $this->belongsTo(Medico::class);
     }
 
     public function paciente()
     {
-        return $this->belongsTo(Paciente::class, 'pessoa_id');
+        return $this->belongsTo(Paciente::class);
     }
 
 }
