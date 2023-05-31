@@ -84,8 +84,11 @@ class ConsultaController extends Controller
      */
     public function show($id)
     {
-       // $paciente = Paciente::with(['pessoa', 'pessoa.endereco'])->findOrFail($id);
-        return view('pacientes.visualizar', compact('consulta'));
+        $consulta = Consulta::findOrFail($id);
+        $paciente = $consulta->paciente;
+        $medico = $consulta->medico;
+        //$paciente = Paciente::with(['pessoa', 'pessoa.endereco'])->findOrFail($id);
+        return view('consultas.visualizar', compact('consulta', 'paciente', 'medico'));
     }
 
     /**
@@ -93,9 +96,11 @@ class ConsultaController extends Controller
      */
     public function edit($id)
     {
-        //$paciente = Consulta::with(['pessoa', 'pessoa.endereco'])->findOrFail($id);
+        $consulta = Consulta::findOrFail($id);
+        $paciente = $consulta->paciente;
+        $medico = $consulta->medico;
 
-        return view('consultas.editar');
+        return view('consultas.editar', compact('consulta', 'paciente', 'medico'));
     }
 
     /**

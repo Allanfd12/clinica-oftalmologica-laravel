@@ -28,8 +28,12 @@
                         <label for="nome" class="form-label">Data da consulta</label>
                         <input type="date" class="form-control" name="data" required >
                     </div>
+                    <div class="col-md-4 mb-4" >
+                        <label for="nome" class="form-label">Hora da consulta</label>
+                        <input type="time" class="form-control" name="data" required >
+                    </div>
                 </div>
-                <button class="btn btn-primary d-grid gap-2 col-3 mx-auto" type="submit">Cadastrar</button>
+                <button class="btn btn-primary d-grid gap-2 col-3 mx-auto" type="submit">Salvar</button>
             </form>
         </div>
     </div>

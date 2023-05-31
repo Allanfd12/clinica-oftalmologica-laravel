@@ -11,7 +11,7 @@
             Atualize os dados da consulta
         </h4>
         <div class="card-body">
-            <form action="{{ route('consultas.editar') }}" method="POST">
+            <form action="#" method="POST">
                 @csrf
                 @method('patch')
                 <div class="row">
@@ -28,6 +28,10 @@
                     <div class="col-md-4 mb-4" >
                         <label for="nome" class="form-label">Data da consulta</label>
                         <input type="date" class="form-control" name="data" required >
+                    </div>
+                    <div class="col-md-4 mb-4" >
+                        <label for="nome" class="form-label">Hora da consulta</label>
+                        <input type="time" class="form-control" name="data" required >
                     </div>
                 </div>
                 <button class="btn btn-primary d-grid gap-2 col-3 mx-auto" type="submit">Atualizar</button>
