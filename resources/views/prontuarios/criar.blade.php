@@ -3,6 +3,11 @@
 @section('title', 'Ophtamuls - Prontuários')
 
 @section('content')
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    </head>
+
     <h2 style="text-align: center; margin-top: 2%; color: #20B2AA">Criar Prontuário</h2>
     <hr style="margin-top: 1%; margin-bottom: 1%;" class="linha-home">
 
@@ -16,7 +21,9 @@
                 <div class="row">
                     <div class="col-md-4 mb-4" >
                         <label for="name" class="form-label">Paciente</label>
-                        
+                        <select class="js-select-paciente js-states form-control">
+                            <option></option>
+                        </select>
                     </div>
 
                     <div class="col-md-4 mb-4">
@@ -50,4 +57,35 @@
             </form>
         </div>
     </div>
+
+    <script>
+        $(document).ready(function() {
+            $('.js-select-paciente').select2({
+                placeholder: "Selecione um Paciente",
+                ajax: {
+                    url: '/pacientesAPI',
+                    dataType: 'json',
+                    delay: 250,
+                    data: function (params) {
+                        return {
+                            search: params.term,
+                            type: 'public'
+                        };
+                    },
+                    processResults: function (data) {
+                        return {
+                            results: data.map(function (paciente) {
+                                return {
+                                    id: paciente.id,
+                                    text: paciente.pessoa.nome
+                                };
+                            })
+                        };
+                    },
+                    cache: true
+                }
+            });
+
+        });
+    </script>
 @endsection
