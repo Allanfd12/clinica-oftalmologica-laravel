@@ -74,7 +74,7 @@ class PacienteController extends Controller
         $request->validated();
         DB::transaction(function () use ($request) {
 
-            $endereco = new \App\Models\Endereco();
+            $endereco = new Endereco();
 
             $endereco->rua = $request->rua;
             $endereco->numero = $request->numero;
