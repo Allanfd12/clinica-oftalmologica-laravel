@@ -27,15 +27,35 @@ class PacienteController extends Controller
 
         return view('pacientes.list',['pacientes'=> $pacientes, 'search' => $search]);
     }
-
-    public function getAllSearch(Request $request){
+    
+    public function search(Request $request)
+    {
+        $term = $request->input('searchItem');
+    
+        // Realize a lógica de busca de pacientes com base no termo e na página fornecidos.
+        // Você pode usar um modelo Eloquent ou qualquer outra lógica de busca personalizada.
+    
         $pacientes = Paciente::join('pessoas', 'pacientes.pessoa_id', '=', 'pessoas.id')
-            ->select('pacientes.id', 'pessoas.nome')
-            ->where('pessoas.nome', 'like', "%{$request->nome}%")
-            ->limit(15)->get();
-
-        return $pacientes;
+            ->where('pessoas.nome', 'like', '%' . $term . '%')
+            ->orderBy('pessoas.nome')
+            ->paginate(10);
+    
+        // Formate os resultados no formato esperado pelo Select2.
+        $formattedResults = [];
+        foreach ($pacientes as $paciente) {
+            $formattedResults[] = [
+                'id' => $paciente->id,
+                'text' => $paciente->pessoa->nome,
+            ];
+        }
+    
+        // Retorne os resultados formatados como JSON.
+        return response()->json([
+            'data' => $formattedResults,
+            'last_page' => $pacientes->lastPage(),
+        ]);
     }
+    
     /**
      * Show the form for creating a new resource.
      */

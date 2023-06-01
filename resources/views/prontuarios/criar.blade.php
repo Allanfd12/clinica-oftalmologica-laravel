@@ -21,8 +21,7 @@
                 <div class="row">
                     <div class="col-md-4 mb-4" >
                         <label for="name" class="form-label">Paciente</label>
-                        <select class="js-select-paciente js-states form-control">
-                            <option></option>
+                        <select id="ajaxselect" class="js-states form-control">
                         </select>
                     </div>
 
@@ -59,28 +58,29 @@
     </div>
 
     <script>
+        var pacientesSearchUrl = '{{ route('pacientes.search') }}';
+
         $(document).ready(function() {
-            $('.js-select-paciente').select2({
+            $('#ajaxselect').select2({
                 placeholder: "Selecione um Paciente",
                 ajax: {
-                    url: '/pacientesAPI',
+                    url: pacientesSearchUrl,
                     dataType: 'json',
                     delay: 250,
                     data: function (params) {
                         return {
-                            search: params.term,
-                            type: 'public'
-                        };
+                            searchItem: params.term,
+                            page: params.page,
+                        }
                     },
-                    processResults: function (data) {
+                    processResults: function (data, params) {
+                        params.page = params.page || 1;
                         return {
-                            results: data.map(function (paciente) {
-                                return {
-                                    id: paciente.id,
-                                    text: paciente.pessoa.nome
-                                };
-                            })
-                        };
+                            results: data.data,
+                            pagination: {
+                                more: data.last_page != params.page
+                            }
+                        }
                     },
                     cache: true
                 }

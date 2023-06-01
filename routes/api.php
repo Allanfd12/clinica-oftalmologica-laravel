@@ -19,4 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/pacientesAPI', [PacienteController::class, 'getAllSearch']);
+Route::get('/pacientes/search', [PacienteController::class, 'search'])->name('pacientes.search');
