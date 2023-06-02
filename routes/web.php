@@ -63,6 +63,7 @@ Route::get('/consultas', [ConsultaController::class, 'index'])->name('consultas.
 Route::get('/consultas/criar', [ConsultaController::class, 'create'])->name('consultas.criar');
 Route::get('/consultas/{id}/editar', [ConsultaController::class, 'edit'])->name('consultas.editar');
 Route::get('/consultas/{id}/visualizar', [ConsultaController::class, 'show'])->name('consultas.visualizar');
+Route::get('/consultas/{id}/excluir', [ConsultaController::class, 'destroy'])->name('consultas.excluir');
 
 
 

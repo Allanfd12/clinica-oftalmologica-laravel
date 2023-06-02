@@ -17,21 +17,21 @@
                 <div class="row">
                     <div class="col-md-4 mb-4" >
                         <label for="nome" class="form-label">Paciente</label>
-                        <input type="text" class="form-control" name="nome" maxlength="255" required >
+                        <input type="text" class="form-control" name="nome" maxlength="255" required disabled>
                     </div>
                     <div class="col-md-4 mb-4" >
                         <label for="nome" class="form-label">Médico</label>
-                        <input type="text" class="form-control" name="nome" maxlength="255" required >
+                        <input type="text" class="form-control" name="nome" maxlength="255" required disabled>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4 mb-4" >
                         <label for="nome" class="form-label">Data da consulta</label>
-                        <input type="date" class="form-control" name="data" required >
+                        <input type="date" class="form-control" name="data" required disabled>
                     </div>
                     <div class="col-md-4 mb-4" >
                         <label for="nome" class="form-label">Hora da consulta</label>
-                        <input type="time" class="form-control" name="data" required >
+                        <input type="time" class="form-control" name="data" required disabled>
                     </div>
                 </div>
                     <a class="btn btn-primary d-grid gap-2 col-3 mx-auto" href="{{ route('consultas.list') }}">Voltar</a>
