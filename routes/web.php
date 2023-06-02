@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ConsultaController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Paciente;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\MedicoController;
@@ -57,6 +58,8 @@ Route::get('/prontuarios/criar', [ProntuarioController::class, 'create'])->name(
 Route::get('/prontuarios/{id}/editar', [ProntuarioController::class, 'edit'])->name('prontuarios.editar');
 Route::get('/prontuarios/{id}/visualizar', [ProntuarioController::class, 'show'])->name('prontuarios.visualizar');
 Route::get('/prontuarios/{id}/excluir', [ProntuarioController::class, 'destroy'])->name('prontuarios.excluir');
+Route::post('/prontuarios/store', [ProntuarioController::class, 'store'])->name('prontuarios.store');
+
 
 //ROTAS DA CONSULTA
 Route::get('/consultas', [ConsultaController::class, 'index'])->name('consultas.list');
@@ -71,6 +74,21 @@ Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit')
 Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
 Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+
+//ROTAS DE BUSCA
+Route::get('/pacienteId', function (Illuminate\Http\Request $request) {
+    $pessoaId = $request->input('pessoaId');
+
+    // Consultar o banco de dados para obter o paciente_id
+    $paciente = Paciente::where('pessoa_id', $pessoaId)->first();
+
+    if ($paciente) {
+        $pacienteId = $paciente->id;
+        return response()->json(['pacienteId' => $pacienteId]);
+    } else {
+        return response()->json(['error' => 'Paciente não encontrado'], 404);
+    }
+})->name('pacientes.findId');
 });
 
 require __DIR__.'/auth.php';

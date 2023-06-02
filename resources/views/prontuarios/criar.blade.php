@@ -16,7 +16,7 @@
             Preencha os dados do prontuário
         </h4>
         <div class="card-body">
-            <form action="#" method="POST" style="display: inline;">
+            <form action="{{ route('prontuarios.store') }}" method="POST" style="display: inline;">
                 @csrf
                 <div class="row">
                     <div class="col-md-4 mb-4" >
@@ -59,6 +59,7 @@
 
     <script>
         var pacientesSearchUrl = '{{ route('pacientes.search') }}';
+        var pacientesFindId = '{{ route('pacientes.findId') }}';
 
         $(document).ready(function() {
             $('#ajaxselect').select2({
@@ -86,6 +87,26 @@
                 }
             });
 
+        });
+        
+        $('#ajaxselect').on('change', function() {
+            var selectedPessoaId = $(this).val();
+
+            // Fazer uma requisição AJAX para obter o paciente_id correspondente ao pessoa_id selecionado
+            $.ajax({
+                url: pacientesFindId,
+                method: 'GET',
+                data: { pessoaId: selectedPessoaId },
+                success: function(response) {
+                    var selectedPacienteId = response.pacienteId;
+
+                    // Atribuir o ID do paciente ao campo pacienteId do formulário
+                    $('form').append('<input type="hidden" name="pacienteId" value="' + selectedPacienteId + '">');
+                },
+                error: function() {
+                    alert('Erro ao obter o ID do paciente.');
+                }
+            });
         });
     </script>
 @endsection
