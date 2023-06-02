@@ -24,6 +24,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/', function () {
         return view('welcome');
     })->name('home');
+
 //ROTAS DO PACIENTE
 Route::get('/pacientes', [PacienteController::class, 'index'])->name('pacientes.list');
 Route::get('/pacientes/criar', [PacienteController::class, 'create'])->name('pacientes.criar');
@@ -32,7 +33,6 @@ Route::get('/pacientes/{id}/editar', [PacienteController::class, 'edit'])->name(
 Route::patch('/pacientes/{id}/atualizar', [PacienteController::class, 'update'])->name('pacientes.atualizar');
 Route::get('/pacientes/{id}/visualizar', [PacienteController::class, 'show'])->name('pacientes.visualizar');
 Route::get('/pacientes/{id}/excluir', [PacienteController::class, 'destroy'])->name('pacientes.excluir');
-
 
 //ROTAS DO USUARIO
 Route::get('/usuarios', [UserController::class, 'index'])->name('usuarios.list');
@@ -55,11 +55,11 @@ Route::get('/medicos/{id}/excluir', [MedicoController::class, 'destroy'])->name(
 //ROTAS DOS PRONTUÁRIOS
 Route::get('/prontuarios', [ProntuarioController::class, 'index'])->name('prontuarios.list');
 Route::get('/prontuarios/criar', [ProntuarioController::class, 'create'])->name('prontuarios.criar');
+Route::post('/prontuarios/store', [ProntuarioController::class, 'store'])->name('prontuarios.store');
 Route::get('/prontuarios/{id}/editar', [ProntuarioController::class, 'edit'])->name('prontuarios.editar');
+Route::patch('/prontuarios/{id}/atualizar', [ProntuarioController::class, 'update'])->name('prontuarios.atualizar');
 Route::get('/prontuarios/{id}/visualizar', [ProntuarioController::class, 'show'])->name('prontuarios.visualizar');
 Route::get('/prontuarios/{id}/excluir', [ProntuarioController::class, 'destroy'])->name('prontuarios.excluir');
-Route::post('/prontuarios/store', [ProntuarioController::class, 'store'])->name('prontuarios.store');
-
 
 //ROTAS DA CONSULTA
 Route::get('/consultas', [ConsultaController::class, 'index'])->name('consultas.list');
@@ -68,13 +68,10 @@ Route::get('/consultas/{id}/editar', [ConsultaController::class, 'edit'])->name(
 Route::get('/consultas/{id}/visualizar', [ConsultaController::class, 'show'])->name('consultas.visualizar');
 Route::get('/consultas/{id}/excluir', [ConsultaController::class, 'destroy'])->name('consultas.excluir');
 
-
-
 //ROTAS DO PERFIL
 Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
 Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
 Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
 
 //ROTAS DE BUSCA
 Route::get('/pacienteId', function (Illuminate\Http\Request $request) {

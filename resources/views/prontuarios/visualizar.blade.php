@@ -27,6 +27,14 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4 mb-4">
+                        <label for="grau" class="form-label">Grau</label>
+                        <input type="text" class="form-control" name="grau" value="{{ $prontuario->grau }}" required disabled>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <label for="biomicoscopia" class="form-label">Biomicoscopia</label>
+                        <input type="text" class="form-control" name="biomicoscopia" required value="{{ $prontuario->biomicoscopia }}" disabled>
+                    </div>
+                    <div class="col-md-4 mb-4">
                         <label for="qp" class="form-label">Queixa Principal</label>
                         <input type="text" class="form-control" name="qp" required  value="{{ $prontuario->qp }}" disabled>
                     </div>

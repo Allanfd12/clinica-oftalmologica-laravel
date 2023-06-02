@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreProntuarioRequest extends FormRequest
+class UpdateProntuarioRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,12 +22,7 @@ class StoreProntuarioRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'paciente_id' => 'required|exists:pacientes,id',
-            'grau' => 'required',
-            'biomicoscopia' => 'required',
-            'qp' => 'required',
-            'conduta' => 'required',
-            'descricao' => 'required',
+            //
         ];
     }
 }

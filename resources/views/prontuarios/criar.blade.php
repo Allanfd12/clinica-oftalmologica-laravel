@@ -23,6 +23,7 @@
                         <label for="name" class="form-label">Paciente</label>
                         <select id="ajaxselect" class="js-states form-control">
                         </select>
+                        <input type="hidden" id="paciente_id" name="paciente_id" value="">
                     </div>
 
                     <div class="col-md-4 mb-4">
@@ -101,7 +102,7 @@
                     var selectedPacienteId = response.pacienteId;
 
                     // Atribuir o ID do paciente ao campo pacienteId do formulário
-                    $('form').append('<input type="hidden" name="pacienteId" value="' + selectedPacienteId + '">');
+                    $('#paciente_id').val(selectedPacienteId);
                 },
                 error: function() {
                     alert('Erro ao obter o ID do paciente.');
