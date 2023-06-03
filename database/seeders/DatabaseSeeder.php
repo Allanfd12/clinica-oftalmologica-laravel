@@ -23,6 +23,12 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('12345678'),
         ]);
 
+        \App\Models\User::factory()->create([
+            'name' => 'Crijina Chagas Flores',
+            'email' => 'crijina@hotmail.com',
+            'password' => Hash::make('melhorprofessora'),
+        ]);
+
 
     }
 }

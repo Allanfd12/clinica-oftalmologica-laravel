@@ -50,10 +50,13 @@
                 <div class="row">
                     <div class="col-md-4 mb-4">
                         <label for="descricao" class="form-label">Descrição</label>
-                        <input type="text" class="form-control" name="descricao" required>
+                        <textarea type="text" class="form-control" name="descricao" rows="5" required></textarea>
                     </div>
                 </div>
-                <button class="btn btn-primary d-grid gap-2 col-3 mx-auto" type="submit">Salvar</button>
+                <div class="d-flex justify-content-between">
+                    <a class="btn btn-primary d-grid gap-2 col-3 mx-auto" href="{{ route('prontuarios.list') }}">Voltar</a>
+                    <button class="btn btn-primary d-grid gap-2 col-3 mx-auto" type="submit">Salvar</button>
+                </div>
             </form>
         </div>
     </div>

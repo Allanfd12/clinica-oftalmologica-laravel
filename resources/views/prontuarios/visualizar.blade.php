@@ -18,32 +18,33 @@
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="cpf" class="form-label">CPF</label>
-                        <input type="text" class="form-control cpf" name="cpf" required value="{{ $prontuario->paciente->pessoa->cpf }}" disabled>
+                        <input type="text" class="form-control cpf" name="cpf" value="{{ $prontuario->paciente->pessoa->cpf }}" disabled>
                     </div>
                     <div class="col-md-4 mb-4">
-                        <label for="descricao" class="form-label">Descrição</label>
-                        <input type="text" class="form-control" name="descricao"  value="{{ $prontuario->descricao }}" disabled>
+                        <label for="grau" class="form-label">Grau</label>
+                        <input type="text" class="form-control" name="grau" value="{{ $prontuario->grau }}" disabled>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4 mb-4">
-                        <label for="grau" class="form-label">Grau</label>
-                        <input type="text" class="form-control" name="grau" value="{{ $prontuario->grau }}" required disabled>
-                    </div>
-                    <div class="col-md-4 mb-4">
                         <label for="biomicoscopia" class="form-label">Biomicoscopia</label>
-                        <input type="text" class="form-control" name="biomicoscopia" required value="{{ $prontuario->biomicoscopia }}" disabled>
+                        <input type="text" class="form-control" name="biomicoscopia"  value="{{ $prontuario->biomicoscopia }}" disabled>
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="qp" class="form-label">Queixa Principal</label>
-                        <input type="text" class="form-control" name="qp" required  value="{{ $prontuario->qp }}" disabled>
+                        <input type="text" class="form-control" name="qp"   value="{{ $prontuario->qp }}" disabled>
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="conduta" class="form-label">Conduta</label>
                         <input type="text" class="form-control" name="conduta" value="{{ $prontuario->conduta }}" disabled>
                     </div>
                 </div>
-                
+                <div>
+                    <div class="col-md-4 mb-4">
+                        <label for="descricao" class="form-label">Descrição</label>
+                        <textarea type="text" class="form-control" name="descricao" rows="5" disabled>{{ $prontuario->descricao }}</textarea>
+                    </div>
+                </div>
                 <a class="btn btn-primary d-grid gap-2 col-3 mx-auto" href="{{ route('prontuarios.list') }}">Voltar</a>
         </div>
     </div>

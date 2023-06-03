@@ -45,9 +45,12 @@
                         <label for="conduta" class="form-label">Conduta</label>
                         <input type="text" class="form-control" name="conduta" value="{{ $prontuario->conduta }}">
                     </div>
+                    
+                </div>
+                <div class="row">
                     <div class="col-md-4 mb-4">
                         <label for="descricao" class="form-label">Descrição</label>
-                        <input type="text" class="form-control" name="descricao"  value="{{ $prontuario->descricao }}">
+                        <textarea type="text" class="form-control" name="descricao" rows="5" required>{{ $prontuario->descricao }}</textarea>
                     </div>
                 </div>
                 <div class="d-flex justify-content-between">
