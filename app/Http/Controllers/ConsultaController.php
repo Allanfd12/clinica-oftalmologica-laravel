@@ -20,14 +20,23 @@ class ConsultaController extends Controller
     public function index()
     {
         $search = request()->query('search');
-        $consultas = Consulta::from('consultas')
+        $consultas = Consulta::orderByRaw('DATE(data_consulta) DESC, hora_consulta DESC')
+            ->from('consultas')
             ->join('pacientes', 'consultas.paciente_id', '=', 'pacientes.id')
             ->join('medicos', 'consultas.medico_id', '=', 'medicos.id')
             ->join('pessoas', 'pacientes.pessoa_id', '=', 'pessoas.id')
             ->join('users', 'medicos.users_id', '=', 'users.id')
             ->select('consultas.*', 'consultas.id')
-            ->where('consultas.id', 'like', "%{$search}%")
+            ->where('pessoas.nome', 'like', "%{$search}%") 
+            ->orWhere('users.name', 'like', "%{$search}%")
             ->paginate(10)->withQueryString();
+
+        foreach ($consultas as $consulta) {
+            $consulta->data_consulta_formatted = Carbon::createFromFormat('Y-m-d', $consulta->data_consulta)->format('d/m/Y');
+
+            $horaConsulta = substr($consulta->hora_consulta, 0, 5); // Extrai os primeiros 5 caracteres (hora:minuto)
+            $consulta->hora_consulta_formatted = $horaConsulta;
+        }
 
         return view('consultas.list', ['consultas'=> $consultas, 'search' => $search]);
     }

@@ -24,15 +24,19 @@
                         <th scope="col">ID</th>
                         <th scope="col">Médico</th>
                         <th scope="col">Paciente</th>
+                        <th scope="col">Data</th>
+                        <th scope="col">Horário</th>
                         <th scope="col">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
                    @foreach($consultas as $consulta)
                 <tr>
-                    <td scope="row">{{$consulta->id}}</td>
+                    <th scope="row">{{$consulta->id}}</th>
                     <td scope="row">{{$consulta->medico->user->name}}</td>
                     <td scope="row">{{$consulta->paciente->pessoa->nome}}</td>
+                    <td scope="row">{{$consulta->data_consulta_formatted}}</td>
+                    <td scope="row">{{$consulta->hora_consulta_formatted}}</td>
                     <td>
                         <a href="{{ route('consultas.editar', $consulta -> id) }}" class="link-secondary"><span class="material-symbols-outlined fs-4">edit_square</span></a>
                         <a href="{{ route('consultas.visualizar', $consulta -> id) }}" class="link-secondary"><span class="material-symbols-outlined fs-4">visibility</span></a>
@@ -47,7 +51,7 @@
                                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                        <p>Tem certeza que deseja excluir a consulta {{ $consulta->id }} ?</p>
+                                        <p>Tem certeza que deseja excluir a consulta do paciente {{$consulta->paciente->pessoa->nome}} ?</p>
                                 </div>
                                 <div class="modal-footer">
                                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -56,18 +60,9 @@
                               </div>
                             </div>
                           </div>
-                        {{-- <form method="POST" id='delete_form' action=""  style="display: inline" >
-                            @csrf
-                            @method('DELETE')
-                            <a href="javascript:{}" onclick="confirm('Are you sure?') ? document.getElementById('delete_form').submit():null; return false;" class="link-secondary"><span class="material-symbols-outlined fs-4">
-                                delete
-                                </span></a>
-                        </form> --}}
                     </td>
                 </tr>
                 @endforeach
-                
-            
                 </tbody>
             </table>
             {{ $consultas->onEachSide(2)->links('layouts.pagination') }}

@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateMedicoRequest;
 use App\Models\Pessoa;
 use App\Models\User;
 use App\Models\Endereco;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
@@ -27,9 +28,39 @@ class MedicoController extends Controller
             ->where('pessoas.nome', 'like', "%{$search}%")
             ->orWhere('medicos.crm', 'like', "%{$search}%")
             ->orWhere('medicos.especialidade', 'like', "%{$search}%")
+            ->orderBy('pessoas.nome', 'asc')
             ->paginate(10)->withQueryString();
 
         return view('medicos.list',['medicos'=> $medicos, 'search' => $search]);
+    }
+
+    public function search(Request $request)
+    {
+        $term = $request->input('searchItemMedico');
+    
+        // Realize a lógica de busca de pacientes com base no termo e na página fornecidos.
+        // Você pode usar um modelo Eloquent ou qualquer outra lógica de busca personalizada.
+    
+        $medicos = Medico::join('users', 'users.id', '=', 'medicos.users_id')
+            ->join('pessoas', 'users.pessoa_id', '=', 'pessoas.id')
+            ->where('pessoas.nome', 'like', '%' . $term . '%')
+            ->orderBy('pessoas.nome')
+            ->paginate(10);
+    
+        // Formate os resultados no formato esperado pelo Select2.
+        $formattedResults = [];
+        foreach ($medicos as $medico) {
+            $formattedResults[] = [
+                'id' => $medico->id,
+                'text' => $medico->pessoa->nome,
+            ];
+        }
+    
+        // Retorne os resultados formatados como JSON.
+        return response()->json([
+            'data' => $formattedResults,
+            'last_page' => $medicos->lastPage(),
+        ]);
     }
 
     /**

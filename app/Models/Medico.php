@@ -13,5 +13,10 @@ class Medico extends Model
         return $this->belongsTo(User::class, 'users_id');
     }
     
+    public function pessoa()
+    {
+        return $this->belongsTo(Pessoa::class);
+    }
+
     use SoftDeletes;
 }
