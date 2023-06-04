@@ -33,7 +33,7 @@
                    @foreach($consultas as $consulta)
                 <tr>
                     <th scope="row">{{$consulta->id}}</th>
-                    <td scope="row">{{$consulta->medico->user->name}}</td>
+                    <td scope="row">{{$consulta->medico->user->pessoa->nome}}</td>
                     <td scope="row">{{$consulta->paciente->pessoa->nome}}</td>
                     <td scope="row">{{$consulta->data_consulta_formatted}}</td>
                     <td scope="row">{{$consulta->hora_consulta_formatted}}</td>

@@ -17,21 +17,21 @@
                 <div class="row">
                     <div class="col-md-4 mb-4" >
                         <label for="nome" class="form-label">Paciente</label>
-                        <input type="text" class="form-control" name="nome" maxlength="255" required disabled>
+                        <input type="text" class="form-control" name="nome" maxlength="255" value="{{ $paciente->pessoa->nome }}" disabled>
                     </div>
                     <div class="col-md-4 mb-4" >
                         <label for="nome" class="form-label">Médico</label>
-                        <input type="text" class="form-control" name="nome" maxlength="255" required disabled>
+                        <input type="text" class="form-control" name="nome" maxlength="255" value="{{ $medico->user->pessoa->nome }}" disabled>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4 mb-4" >
                         <label for="nome" class="form-label">Data da consulta</label>
-                        <input type="date" class="form-control" name="data" required disabled>
+                        <input type="date" class="form-control" name="data" value="{{ $consulta->data_consulta}}" disabled>
                     </div>
                     <div class="col-md-4 mb-4" >
                         <label for="nome" class="form-label">Hora da consulta</label>
-                        <input type="time" class="form-control" name="data" required disabled>
+                        <input type="time" class="form-control" name="data" value="{{ substr($consulta->hora_consulta, 0, 5) }}" disabled>
                     </div>
                 </div>
                     <a class="btn btn-primary d-grid gap-2 col-3 mx-auto" href="{{ route('consultas.list') }}">Voltar</a>

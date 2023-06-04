@@ -20,16 +20,34 @@ class ConsultaController extends Controller
     public function index()
     {
         $search = request()->query('search');
-        $consultas = Consulta::orderByRaw('DATE(data_consulta) DESC, hora_consulta DESC')
-            ->from('consultas')
+        
+
+        $consultaCount = Consulta::from('consultas')
+        ->join('pacientes', 'consultas.paciente_id', '=', 'pacientes.id')
+        ->join('medicos', 'consultas.medico_id', '=', 'medicos.id')
+        ->join('users', 'medicos.users_id', '=', 'users.id')
+        ->join('pessoas', function ($join) use ($search) {
+            $join->on('pacientes.pessoa_id', '=', 'pessoas.id')
+                ->orWhere('users.pessoa_id', '=', 'pessoas.id')
+                ->where('pessoas.nome', 'like', "%{$search}%");
+        })
+        ->select('consultas.id')
+        ->count();
+
+        $consultas = Consulta::from('consultas')
+            ->orderByRaw('DATE(data_consulta) DESC, hora_consulta DESC')
             ->join('pacientes', 'consultas.paciente_id', '=', 'pacientes.id')
             ->join('medicos', 'consultas.medico_id', '=', 'medicos.id')
-            ->join('pessoas', 'pacientes.pessoa_id', '=', 'pessoas.id')
             ->join('users', 'medicos.users_id', '=', 'users.id')
+            ->join('pessoas', function ($join) use ($search){
+                $join->on('pacientes.pessoa_id', '=', 'pessoas.id')
+                    ->orWhere('users.pessoa_id', '=', 'pessoas.id')
+                    ->where('pessoas.nome', 'like', "%{$search}%");
+            })
             ->select('consultas.*', 'consultas.id')
-            ->where('pessoas.nome', 'like', "%{$search}%") 
-            ->orWhere('users.name', 'like', "%{$search}%")
             ->paginate(10)->withQueryString();
+
+        $consultas->total($consultaCount);
 
         foreach ($consultas as $consulta) {
             $consulta->data_consulta_formatted = Carbon::createFromFormat('Y-m-d', $consulta->data_consulta)->format('d/m/Y');
@@ -96,7 +114,7 @@ class ConsultaController extends Controller
         $consulta = Consulta::findOrFail($id);
         $paciente = $consulta->paciente;
         $medico = $consulta->medico;
-        //$paciente = Paciente::with(['pessoa', 'pessoa.endereco'])->findOrFail($id);
+        
         return view('consultas.visualizar', compact('consulta', 'paciente', 'medico'));
     }
 
