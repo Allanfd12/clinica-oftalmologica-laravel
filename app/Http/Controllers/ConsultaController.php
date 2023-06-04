@@ -21,15 +21,15 @@ class ConsultaController extends Controller
     {
         $search = request()->query('search');
         
-
         $consultaCount = Consulta::from('consultas')
         ->join('pacientes', 'consultas.paciente_id', '=', 'pacientes.id')
         ->join('medicos', 'consultas.medico_id', '=', 'medicos.id')
         ->join('users', 'medicos.users_id', '=', 'users.id')
-        ->join('pessoas', function ($join) use ($search) {
-            $join->on('pacientes.pessoa_id', '=', 'pessoas.id')
-                ->orWhere('users.pessoa_id', '=', 'pessoas.id')
-                ->where('pessoas.nome', 'like', "%{$search}%");
+        ->join('pessoas as pacientes_pessoas', 'pacientes.pessoa_id', '=', 'pacientes_pessoas.id')
+        ->join('pessoas as medicos_pessoas', 'users.pessoa_id', '=', 'medicos_pessoas.id')
+        ->where(function ($query) use ($search) {
+            $query->where('pacientes_pessoas.nome', 'like', "%{$search}%")
+                ->orWhere('medicos_pessoas.nome', 'like', "%{$search}%");
         })
         ->select('consultas.id')
         ->count();
@@ -39,10 +39,11 @@ class ConsultaController extends Controller
             ->join('pacientes', 'consultas.paciente_id', '=', 'pacientes.id')
             ->join('medicos', 'consultas.medico_id', '=', 'medicos.id')
             ->join('users', 'medicos.users_id', '=', 'users.id')
-            ->join('pessoas', function ($join) use ($search){
-                $join->on('pacientes.pessoa_id', '=', 'pessoas.id')
-                    ->orWhere('users.pessoa_id', '=', 'pessoas.id')
-                    ->where('pessoas.nome', 'like', "%{$search}%");
+            ->join('pessoas as pacientes_pessoas', 'pacientes.pessoa_id', '=', 'pacientes_pessoas.id')
+            ->join('pessoas as medicos_pessoas', 'users.pessoa_id', '=', 'medicos_pessoas.id')
+            ->where(function ($query) use ($search) {
+                $query->where('pacientes_pessoas.nome', 'like', "%{$search}%")
+                    ->orWhere('medicos_pessoas.nome', 'like', "%{$search}%");
             })
             ->select('consultas.*', 'consultas.id')
             ->paginate(10)->withQueryString();
@@ -114,7 +115,7 @@ class ConsultaController extends Controller
         $consulta = Consulta::findOrFail($id);
         $paciente = $consulta->paciente;
         $medico = $consulta->medico;
-        
+        //$paciente = Paciente::with(['pessoa', 'pessoa.endereco'])->findOrFail($id);
         return view('consultas.visualizar', compact('consulta', 'paciente', 'medico'));
     }
 
