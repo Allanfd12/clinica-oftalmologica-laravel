@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\MedicoController;
 use App\Http\Controllers\PacienteController;
+use App\Http\Controllers\PessoaController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,3 +23,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/pacientes/search', [PacienteController::class, 'search'])->name('pacientes.search');
 Route::get('/medicos/search', [MedicoController::class, 'search'])->name('medicos.search');
+Route::get('/cpf', [PessoaController::class, 'verifyCpf'])->name('pessoa.verifyCpf');

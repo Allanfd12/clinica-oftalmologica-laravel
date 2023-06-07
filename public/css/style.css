@@ -56,6 +56,6 @@ hr.h-color {
     color: white;
 }
 
-.invalid-cpf {
+.invalid {
     border-color: red !important;
 }
