@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreConsultaRequest;
 use App\Models\Paciente;
 use App\Http\Requests\StorePacienteRequest;
 use App\Http\Requests\UpdatePacienteRequest;
@@ -71,41 +72,20 @@ class ConsultaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    // public function store(StorePacienteRequest $request)
-    // {
-    //     // dd($request->all());
-    //     //  dd(Carbon::parse($request->data_nacimento)->format('m/d/Y'));
-    //     $request->validated();
-    //     DB::transaction(function () use ($request) {
+    public function store(StoreConsultaRequest $request)
+    {
+        DB::transaction(function () use ($request) {
 
-    //         $endereco = new \App\Models\Endereco();
+            $consulta = new Consulta();
+            $consulta->paciente_id = $request->paciente_id;
+            $consulta->medico_id = $request->medico_id;
+            $consulta->data_consulta = $request->data_consulta;
+            $consulta->hora_consulta = $request->hora_consulta;
+            $consulta->save();
+        });
 
-    //         $endereco->rua = $request->rua;
-    //         $endereco->numero = $request->numero;
-    //         $endereco->bairro = $request->bairro;
-    //         $endereco->cidade = $request->cidade;
-    //         $endereco->estado = $request->estado;
-    //         $endereco->cep = $request->cep;
-    //         $endereco->complemento = $request->complemento;
-    //         $endereco->save();
-
-    //         $pessoa = new Pessoa();
-    //         $pessoa->nome = $request->nome;
-    //         // remove caracteres especiais
-    //         $pessoa->cpf = preg_replace('/[^0-9]/', '', $request->cpf);
-
-    //         $pessoa->data_nacimento = Carbon::parse($request->data_nacimento)->format('Y-m-d');;
-    //         $pessoa->email = $request->email;
-    //         $pessoa->telefone = $request->telefone;
-    //         $pessoa->endereco_id = $endereco->id;
-    //         $pessoa->save();
-
-    //         $paciente = new Paciente();
-    //         $paciente->pessoa_id = $pessoa->id;
-    //         $paciente->save();
-    //     });
-    //     return redirect()->route('pacientes.list');
-    // }
+        return redirect()->route('consultas.list');
+    }
 
     /**
      * Display the specified resource.

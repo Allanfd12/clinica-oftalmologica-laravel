@@ -8,6 +8,8 @@ use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\MedicoController;
 use App\Http\Controllers\ProntuarioController;
 use App\Http\Controllers\UserController;
+use App\Models\Medico;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,6 +66,7 @@ Route::get('/prontuarios/{id}/excluir', [ProntuarioController::class, 'destroy']
 //ROTAS DA CONSULTA
 Route::get('/consultas', [ConsultaController::class, 'index'])->name('consultas.list');
 Route::get('/consultas/criar', [ConsultaController::class, 'create'])->name('consultas.criar');
+Route::post('/consultas/store', [ConsultaController::class, 'store'])->name('consultas.store');
 Route::get('/consultas/{id}/editar', [ConsultaController::class, 'edit'])->name('consultas.editar');
 Route::get('/consultas/{id}/visualizar', [ConsultaController::class, 'show'])->name('consultas.visualizar');
 Route::get('/consultas/{id}/excluir', [ConsultaController::class, 'destroy'])->name('consultas.excluir');
@@ -87,6 +90,23 @@ Route::get('/pacienteId', function (Illuminate\Http\Request $request) {
         return response()->json(['error' => 'Paciente não encontrado'], 404);
     }
 })->name('pacientes.findId');
+
+//ROTAS DE BUSCA
+Route::get('/medicoId', function (Illuminate\Http\Request $request) {
+    $pessoaIdMedico = $request->input('pessoaIdMedico');
+
+    // Consultar o banco de dados para obter o paciente_id
+    $user = User::where('pessoa_id', $pessoaIdMedico)->first();
+    $medico = Medico::Where('users_id', $user->id)->first();
+
+    if ($medico) {
+        $medicoId = $medico->id;
+        return response()->json(['medicoId' => $medicoId]);
+    } else {
+        return response()->json(['error' => 'Médico não encontrado'], 404);
+    }
+})->name('medicos.findId');
 });
+
 
 require __DIR__.'/auth.php';

@@ -15,7 +15,7 @@
             Preencha os dados da consulta
         </h4>
         <div class="card-body">
-            <form action="{{ route('pacientes.store') }}" method="POST">
+            <form action="{{ route('consultas.store') }}" method="POST">
                 @csrf
                 <div class="row">
                     <div class="col-md-4 mb-4" >
@@ -54,6 +54,7 @@
         var pacientesFindId = '{{ route('pacientes.findId') }}';
 
         var medicosSearchUrl = '{{ route('medicos.search') }}';
+        var medicosFindId = '{{ route('medicos.findId') }}';
 
         $(document).ready(function() {
             $('#ajaxselectPaciente').select2({
@@ -123,6 +124,26 @@
                 },
                 error: function() {
                     alert('Erro ao obter o ID do paciente.');
+                }
+            });
+        });
+
+        $('#ajaxselectMedico').on('change', function() {
+            var selectedPessoaId2 = $(this).val();
+
+            // Fazer uma requisição AJAX para obter o paciente_id correspondente ao pessoa_id selecionado
+            $.ajax({
+                url: medicosFindId,
+                method: 'GET',
+                data: { pessoaIdMedico: selectedPessoaId2 },
+                success: function(response) {
+                    var selectedMedicoId = response.medicoId;
+
+                    // Atribuir o ID do paciente ao campo pacienteId do formulário
+                    $('#medico_id').val(selectedMedicoId);
+                },
+                error: function() {
+                    alert('Erro ao obter o ID do médico.');
                 }
             });
         });
