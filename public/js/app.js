@@ -62,28 +62,30 @@ $(document).ready(function () {
     });
 
     $('form').on('submit', function (event) {
-        var cpfInput = $('.cpf');
-        var cpf = cpfInput.val();
 
-        var cepInput = $('.cep');
-        var cep = cepInput.val().replace(/\D/g, '');
-
-        if (!validarCPF(cpf)) {
-            event.preventDefault(); // Impede o envio do formulário
-            alert('CPF inválido!');
-            return false;
-        }
-        if (cpfExiste(cpf)) {
-            event.preventDefault(); // Impede o envio do formulário
-            alert('CPF já cadastrado!');
-            return false;
+        if ($('.cep').length > 0) {
+            var cep = $('.cep').val().replace(/\D/g, '');
+            if (cep.length !== 8 || cepInput.hasClass('invalid-cep')) {
+                event.preventDefault(); // Impede o envio do formulário
+                alert('CEP inválido!');
+                return false;
+            }
         }
 
-        if (cep.length !== 8 || cepInput.hasClass('invalid-cep')) {
-            event.preventDefault(); // Impede o envio do formulário
-            alert('CEP inválido!');
-            return false;
+        if ($('.cpf').length > 0) {
+            var cpf = $('.cpf').val();
+            if (!validarCPF(cpf)) {
+                event.preventDefault(); // Impede o envio do formulário
+                alert('CPF inválido!');
+                return false;
+            }
+            if (cpfExiste(cpf)) {
+                event.preventDefault(); // Impede o envio do formulário
+                alert('CPF já cadastrado!');
+                return false;
+            }
         }
+
 
         if ($('input').hasClass('invalid')) {
             event.preventDefault();
