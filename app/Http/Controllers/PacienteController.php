@@ -23,8 +23,19 @@ class PacienteController extends Controller
         $pacientes = Paciente::join('pessoas', 'pacientes.pessoa_id', '=', 'pessoas.id')
             ->select('pacientes.*', 'pessoas.nome')
             ->where('pessoas.nome', 'like', "%{$search}%")
+            ->orderBy('pessoas.nome')
             ->paginate(10)->withQueryString();
-
+        
+        foreach ($pacientes as $paciente) {
+            $numeroTelefone = preg_replace('/[^0-9]/', '', $paciente->pessoa->telefone);
+            $numeroTelefone_formatado = '('.substr($numeroTelefone, 0, 2).') '.substr($numeroTelefone, 2, 5).'-'.substr($numeroTelefone, 7);
+            $paciente->pessoa->telefone_formatted = $numeroTelefone_formatado;
+            
+            $cpf = preg_replace('/[^0-9]/', '', $paciente->pessoa->cpf);
+            $cpf_formatado = substr($cpf, 0, 3).'.'.substr($cpf, 3, 3).'.'.substr($cpf, 6, 3).'-'.substr($cpf, 9);
+            $paciente->pessoa->cpf_formatted = $cpf_formatado;
+        }
+        
         return view('pacientes.list',['pacientes'=> $pacientes, 'search' => $search]);
     }
     
@@ -69,8 +80,6 @@ class PacienteController extends Controller
      */
     public function store(StorePacienteRequest $request)
     {
-        // dd($request->all());
-        //  dd(Carbon::parse($request->data_nacimento)->format('m/d/Y'));
         $request->validated();
         DB::transaction(function () use ($request) {
 
