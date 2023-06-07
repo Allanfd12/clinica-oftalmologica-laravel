@@ -18,7 +18,8 @@
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="cpf" class="form-label">CPF</label>
-                        <input type="text" class="form-control cpf" name="cpf" value="{{ $prontuario->paciente->pessoa->cpf }}" disabled>
+                        <input type="text" class="form-control cpf" name="cpf" required pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"  value="{{ $prontuario->paciente->pessoa->cpf }}" disabled>
+                        <div class="message-cpf"></div>
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="grau" class="form-label">Grau</label>

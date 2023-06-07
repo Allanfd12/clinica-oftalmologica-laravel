@@ -20,7 +20,8 @@
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="cpf" class="form-label">CPF</label>
-                        <input type="text" class="form-control cpf" name="cpf" required >
+                        <input type="text" class="form-control cpf" name="cpf" required pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" >
+                        <div class="message-cpf"></div>
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="data_nascimento" class="form-label">Data de Nascimento</label>
