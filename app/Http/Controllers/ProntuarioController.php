@@ -21,6 +21,10 @@ class ProntuarioController extends Controller
         
         foreach ($prontuarios as $prontuario) {
             $prontuario->updated_at_formatted = $prontuario->updated_at->format('d/m/Y');
+
+            $cpf = preg_replace('/[^0-9]/', '', $prontuario->paciente->pessoa->cpf);
+            $cpf_formatado = substr($cpf, 0, 3).'.'.substr($cpf, 3, 3).'.'.substr($cpf, 6, 3).'-'.substr($cpf, 9);
+            $prontuario->paciente->pessoa->cpf_formatted = $cpf_formatado;
         }
 
         return view('prontuarios.list', ['prontuarios' => $prontuarios, 'search' => $search], compact('prontuarios'));

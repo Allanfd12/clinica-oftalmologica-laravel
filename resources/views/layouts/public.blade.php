@@ -24,7 +24,7 @@
         <div class="sidebar" id="side_nav">
             <div class="header px-2 pt-3 pb-4">
                 <a class="navbar-brand" href="{{ route('home') }}">
-                    <img src="{{ asset('img/olho-logo.png') }}" alt="Logo" width="45" height="30"
+                    <img src="{{ asset('img/olho-logo-verde.png') }}" alt="Logo" width="45" height="30"
                         class="d-inline-block align-text-top"><span class="logo-texto"> Ophtamuls</span>
                 </a>
             </div>
@@ -62,7 +62,7 @@
                         </span> Relatórios</a></li> --}}
             </ul>
 
-            <ul class="list-unstyled px-3" style="position: absolute; bottom: 0; left: 0;">
+            <ul class="list-unstyled px-3" style="position: fixed; bottom: 0; left: 0;">
                 <hr class="h-color mx-2">
                 <li><a href="#" class="text-decoration-none d-block"><span class="material-symbols-outlined icon">
                             settings
@@ -70,8 +70,6 @@
             </ul>
         </div>
         <div class="navbar-cima">
-
-
             <nav class="navbar navbar-expand-lg" style="background-color:#20B2AA">
                 <div class="container-fluid">
                     <div class="collapse navbar-collapse nav-fill justify-content-center" id="navbarSupportedContent">

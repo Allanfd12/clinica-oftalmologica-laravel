@@ -21,9 +21,8 @@
             <table class="table table-hover text-center align-middle table-sm">
                 <thead class="table-light">
                     <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Médico</th>
-                        <th scope="col">Paciente</th>
+                        <th scope="col" style="text-align: left; padding-left: 40px;">Médico</th>
+                        <th scope="col" style="text-align: left; padding-left: 40px;">Paciente</th>
                         <th scope="col">Data</th>
                         <th scope="col">Horário</th>
                         <th scope="col">Ações</th>
@@ -32,9 +31,8 @@
                 <tbody>
                    @foreach($consultas as $consulta)
                 <tr>
-                    <th scope="row">{{$consulta->id}}</th>
-                    <td scope="row">{{$consulta->medico->user->pessoa->nome}}</td>
-                    <td scope="row">{{$consulta->paciente->pessoa->nome}}</td>
+                    <td scope="row" style="text-align: left; padding-left: 40px; width: 350px">{{$consulta->medico->user->pessoa->nome}}</td>
+                    <td scope="row" style="text-align: left; padding-left: 40px; width: 350px">{{$consulta->paciente->pessoa->nome}}</td>
                     <td scope="row">{{$consulta->data_consulta_formatted}}</td>
                     <td scope="row">{{$consulta->hora_consulta_formatted}}</td>
                     <td>

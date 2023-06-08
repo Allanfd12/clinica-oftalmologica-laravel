@@ -25,7 +25,7 @@
                         <select id="ajaxselect" class="js-states form-control">
                             <option selected>{{ $prontuario->paciente->pessoa->nome }}</option>
                         </select>
-                        <input type="hidden" id="paciente_id" name="paciente_id" value="{{ $prontuario->paciente_id }}">
+                        <input type="hidden" id="paciente_id" name="paciente_id" value="{{ $prontuario->paciente_id }}" required>
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="grau" class="form-label">Grau</label>
@@ -43,7 +43,7 @@
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="conduta" class="form-label">Conduta</label>
-                        <input type="text" class="form-control" name="conduta" value="{{ $prontuario->conduta }}">
+                        <input type="text" class="form-control" name="conduta" required value="{{ $prontuario->conduta }}">
                     </div>
                     
                 </div>
