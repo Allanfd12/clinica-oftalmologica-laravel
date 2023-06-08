@@ -44,7 +44,10 @@
                         <input type="time" class="form-control" name="hora_consulta" required value="{{ $consulta->hora_consulta }}">
                     </div>
                 </div>
-                <button class="btn btn-primary d-grid gap-2 col-3 mx-auto" type="submit">Atualizar</button>
+                <div class="d-flex justify-content-between">
+                    <a class="btn btn-primary d-grid gap-2 col-3 mx-auto" href="{{ route('consultas.list') }}">Voltar</a>
+                    <button class="btn btn-primary d-grid gap-2 col-3 mx-auto" type="submit">Atualizar</button>
+                </div>
             </form>
         </div>
     </div>

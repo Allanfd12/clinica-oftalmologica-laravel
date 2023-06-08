@@ -21,58 +21,66 @@
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="cpf" class="form-label">CPF</label>
-                        <input type="text" class="form-control cpf" name="cpf" required value="{{ $paciente->pessoa->cpf }}">
+                        <input type="text" class="form-control cpf" name="cpf" required pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" value="{{ $paciente->pessoa->cpf }}">
+                        <div class="message-cpf"></div>
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="data_nacimento" class="form-label">Data de Nascimento</label>
-                        <input type="date" class="form-control" name="data_nacimento" min="1900-01-01" max="{{date('Y-m-d')}}" required value="{{ $paciente->pessoa->data_nacimento }}">
+                        <input type="date" class="form-control data_nacimento" name="data_nacimento" min="1900-01-01" max="{{date('Y-m-d')}}" required value="{{ $paciente->pessoa->data_nacimento }}">
+                        <div class="message-data-nascimento"></div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4 mb-4">
                         <label for="email" class="form-label">E-mail</label>
-                        <input type="email" class="form-control email" name="email"  value="{{ $paciente->pessoa->email }}">
+                        <input type="email" class="form-control email" name="email" required value="{{ $paciente->pessoa->email }}">
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="telefone" class="form-label">Telefone</label>
-                        <input type="tel" class="form-control telefone" name="telefone" required  value="{{ $paciente->pessoa->telefone }}">
+                        <input type="tel" class="form-control telefone" name="telefone" required value="{{ $paciente->pessoa->telefone }}">
                     </div>
                 </div>
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center mt-2 mb-3 border-bottom"></div>
                 <div class="row">
                     <div class="col-md-4 mb-3">
                         <label for="rua" class="form-label">Rua</label>
-                        <input type="text" class="form-control" name="rua" value="{{ $paciente->pessoa->endereco->rua }}">
+                        <input type="text" class="form-control" name="rua" required value="{{ $paciente->pessoa->endereco->rua }}">
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="numero" class="form-label">Número</label>
-                        <input type="text" class="form-control" name="numero" value="{{ $paciente->pessoa->endereco->numero }}">
+                        <input type="text" class="form-control" name="numero" required value="{{ $paciente->pessoa->endereco->numero }}">
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="cep" class="form-label">CEP</label>
-                        <input type="text" class="form-control" name="cep" value="{{ $paciente->pessoa->endereco->cep }}">
+                        <input type="text" class="form-control" name="cep" required value="{{ $paciente->pessoa->endereco->cep }}">
+                        <div class="message-cep"></div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4 mb-3">
                         <label for="bairro" class="form-label">Bairro</label>
-                        <input type="text" class="form-control" name="bairro" value="{{ $paciente->pessoa->endereco->bairro }}">
+                        <input type="text" class="form-control" name="bairro" required value="{{ $paciente->pessoa->endereco->bairro }}">
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="cidade" class="form-label">Cidade</label>
-                        <input type="text" class="form-control" name="cidade" value="{{ $paciente->pessoa->endereco->cidade }}">
+                        <input type="text" class="form-control" name="cidade" required value="{{ $paciente->pessoa->endereco->cidade }}">
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="estado" class="form-label">Estado</label>
-                        <input type="text" class="form-control" name="estado" value="{{ $paciente->pessoa->endereco->estado }}">
+                        <input type="text" class="form-control" name="estado" required value="{{ $paciente->pessoa->endereco->estado }}">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4 mb-4">
                         <label for="complemento" class="form-label">Complemento</label>
-                        <input type="text" class="form-control" name="complemento" value="{{ $paciente->pessoa->endereco->complemento }}">
+                        <input type="text" class="form-control" name="complemento" required value="{{ $paciente->pessoa->endereco->complemento }}">
                     </div>
                 </div>
-                <button class="btn btn-primary d-grid gap-2 col-3 mx-auto" type="submit">Atualizar</button>
+
+                <div class="d-flex justify-content-between">
+                    <a class="btn btn-primary d-grid gap-2 col-3 mx-auto" href="{{ route('pacientes.list') }}">Voltar</a>
+                    <button class="btn btn-primary d-grid gap-2 col-3 mx-auto" type="submit">Atualizar</button>
+                </div>
             </form>
         </div>
     </div>

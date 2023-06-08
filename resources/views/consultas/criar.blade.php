@@ -22,13 +22,13 @@
                         <label for="nome" class="form-label">Paciente</label>
                         <select id="ajaxselectPaciente" class="js-states form-control">
                         </select>
-                        <input type="hidden" id="paciente_id" name="paciente_id" value="">
+                        <input type="hidden" id="paciente_id" name="paciente_id" value="" required>
                     </div>
                     <div class="col-md-4 mb-4" >
                         <label for="nome" class="form-label">Médico</label>
                         <select id="ajaxselectMedico" class="js-states form-control">
                         </select>
-                        <input type="hidden" id="medico_id" name="medico_id" value="">
+                        <input type="hidden" id="medico_id" name="medico_id" value="" required>
                     </div>
                 </div>
                 <div class="row">

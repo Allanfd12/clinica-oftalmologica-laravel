@@ -24,15 +24,11 @@
         <div class="sidebar" id="side_nav">
             <div class="header px-2 pt-3 pb-4">
                 <a class="navbar-brand" href="{{ route('home') }}">
-                    <img src="{{ asset('img/olho-logo.png') }}" alt="Logo" width="45" height="30"
+                    <img src="{{ asset('img/olho-logo-verde.png') }}" alt="Logo" width="45" height="30"
                         class="d-inline-block align-text-top"><span class="logo-texto"> Ophtamuls</span>
                 </a>
             </div>
             <ul class="list-unstyled px-3">
-                <li class="p-1 mb-2 @if (Route::is('pacientes.list')) active @endif"><a href="{{ route('pacientes.list') }}"
-                        class="text-decoration-none d-block"><span class="material-symbols-outlined icon">
-                            patient_list
-                        </span> Pacientes</a></li>
                 <li class="p-1 mb-2 @if (Route::is('consultas.list')) active @endif"><a href="{{ route('consultas.list') }}" class="text-decoration-none d-block"><span
                             class="material-symbols-outlined icon">
                             medical_services
@@ -41,28 +37,32 @@
                             class="material-symbols-outlined icon">
                             stethoscope
                         </span> Médicos</a></li>
+                <li class="p-1 mb-2 @if (Route::is('pacientes.list')) active @endif"><a href="{{ route('pacientes.list') }}"
+                        class="text-decoration-none d-block"><span class="material-symbols-outlined icon">
+                            patient_list
+                        </span> Pacientes</a></li>
                 <li class="p-1 mb-2 @if (Route::is('prontuarios.list')) active @endif"><a href="{{ route('prontuarios.list') }}" class="text-decoration-none d-block"><span
                             class="material-symbols-outlined icon">
                             assignment
                         </span> Prontuários</a></li>
-                <li class="p-1 mb-2"><a href="#" class="text-decoration-none d-block"><span
+                {{-- <li class="p-1 mb-2"><a href="#" class="text-decoration-none d-block"><span
                             class="material-symbols-outlined icon">
                             pill
-                        </span> Medicamentos</a></li>
+                        </span> Medicamentos</a></li> --}}
                 <li class="p-1 mb-2 @if (Route::is('usuarios.list')) active @endif"><a href="{{ route('usuarios.list') }}" class="text-decoration-none d-block"><span
                             class="material-symbols-outlined icon">
                             account_circle</span> Usuários</a></li>
-                <li class="p-1 mb-2"><a href="#" class="text-decoration-none d-block"><span
+                {{-- <li class="p-1 mb-2"><a href="#" class="text-decoration-none d-block"><span
                             class="material-symbols-outlined icon">
                             login
-                        </span> Acessos</a></li>
-                <li class="p-1"><a href="#" class="text-decoration-none d-block"><span
+                        </span> Acessos</a></li> --}}
+                {{-- <li class="p-1"><a href="#" class="text-decoration-none d-block"><span
                             class="material-symbols-outlined icon">
                             lab_profile
-                        </span> Relatórios</a></li>
+                        </span> Relatórios</a></li> --}}
             </ul>
 
-            <ul class="list-unstyled px-3" style="position: absolute; bottom: 0; left: 0;">
+            <ul class="list-unstyled px-3" style="position: fixed; bottom: 0; left: 0;">
                 <hr class="h-color mx-2">
                 <li><a href="#" class="text-decoration-none d-block"><span class="material-symbols-outlined icon">
                             settings
@@ -70,8 +70,6 @@
             </ul>
         </div>
         <div class="navbar-cima">
-
-
             <nav class="navbar navbar-expand-lg" style="background-color:#20B2AA">
                 <div class="container-fluid">
                     <div class="collapse navbar-collapse nav-fill justify-content-center" id="navbarSupportedContent">

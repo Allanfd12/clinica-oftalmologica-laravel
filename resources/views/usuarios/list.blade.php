@@ -21,20 +21,17 @@
             <table class="table table-hover text-center align-middle table-sm">
                 <thead class="table-light">
                     <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Permissões</th>
+                        <th scope="col" style="text-align: left; padding-left: 40px;">Nome</th>
+                        <th scope="col" style="padding-left: 40px;">Email</th>
+                        <th scope="col" style="padding-left: 40px;">CPF</th>
                         <th scope="col">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($usuarios as $user)
-                <tr>
-                    <th scope="row">{{$user->id}}</th>
-                    <td>{{$user->nome}}</td>
-                    <td>{{$user->email}}</td>
-                    <td>Todas</td>
+                    <td style="text-align: left; padding-left: 40px; width: 350px">{{$user->nome}}</td>
+                    <td style="padding-left: 40px; width: 300px">{{$user->email}}</td>
+                    <td style="padding-left: 40px; width: 300px"> {{$user->pessoa->cpf_formatted}}</td>
                     <td>
                         <a href="{{ route('usuarios.editar', $user->id) }}" class="link-secondary"><span class="material-symbols-outlined fs-4">edit_square</span></a>
                         <a href="{{ route('usuarios.visualizar', $user->id) }}" class="link-secondary"><span class="material-symbols-outlined fs-4">visibility</span></a>

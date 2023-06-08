@@ -21,9 +21,8 @@
             <table class="table table-hover text-center align-middle table-sm">
                 <thead class="table-light">
                     <tr>
-                        <th class="col-1" scope="col">ID</th>
-                        <th class="col-4" scope="col">Nome</th>
-                        <th class="col-3" scope="col">Especialidade</th>
+                        <th class="col-4" scope="col" style="text-align: left; padding-left: 40px">Nome</th>
+                        <th class="col-3" scope="col" style="text-align: left;">Especialidade</th>
                         <th class="col-2" scope="col">CRM</th>
                         <th class="col-2" scope="col">Ações</th>
                     </tr>
@@ -31,9 +30,8 @@
                 <tbody>
                     @foreach($medicos as $medico)
                 <tr>
-                    <th scope="row">{{$medico->id}}</th>
-                    <td>{{$medico->nome}}</td>
-                    <td>{{$medico->especialidade}}</td>
+                    <td style="text-align: left; padding-left: 40px;">{{$medico->nome}}</td>
+                    <td style="text-align: left;">{{$medico->especialidade}}</td>
                     <td>{{$medico->crm}}</td>
                     <td>
                         <a href="{{ route('medicos.editar', $medico->id) }}" class="link-secondary"><span class="material-symbols-outlined fs-4">edit_square</span></a>

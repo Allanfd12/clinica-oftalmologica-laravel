@@ -21,17 +21,19 @@
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="cpf" class="form-label">CPF</label>
-                        <input type="text" class="form-control cpf" name="cpf" required value="{{ $user->pessoa->cpf }}">
+                        <input type="text" class="form-control cpf" name="cpf" required pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" value="{{ $user->pessoa->cpf }}">
+                        <div class="message-cpf"></div>
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="data_nacimento" class="form-label">Data de Nascimento</label>
-                        <input type="date" class="form-control" name="data_nacimento" min="1900-01-01" max="{{date('Y-m-d')}}" required value="{{ \Carbon\Carbon::parse($user->pessoa->data_nacimento)->format('Y-m-d') }}">
+                        <input type="date" class="form-control data_nacimento" name="data_nacimento" min="1900-01-01" max="{{date('Y-m-d')}}" required value="{{ \Carbon\Carbon::parse($user->pessoa->data_nacimento)->format('Y-m-d') }}">
+                        <div class="message-data-nascimento"></div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4 mb-4">
                         <label for="email" class="form-label">E-mail</label>
-                        <input type="email" class="form-control email" name="email" value="{{ $user->pessoa->email }}">
+                        <input type="email" class="form-control email" name="email" required value="{{ $user->pessoa->email }}">
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="telefone" class="form-label">Telefone</label>
@@ -41,14 +43,18 @@
                 <div class="row">
                     <div class="col-md-4 mb-4">
                         <label for="password" class="form-label">Senha</label>
-                        <input type="text" class="form-control" name="password" >
+                        <input type="text" class="form-control password" name="password" >
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="password" class="form-label">Confirmar Senha</label>
-                        <input type="text" class="form-control" name="password" >
+                        <input type="text" class="form-control confirm-password" name="confirm-password" >
+                        <div class="message-password"></div>
                     </div>
                 </div>
-                <button class="btn btn-primary d-grid gap-2 col-3 mx-auto" type="submit">Salvar</button>
+                <div class="d-flex justify-content-between">
+                    <a class="btn btn-primary d-grid gap-2 col-3 mx-auto" href="{{ route('usuarios.list') }}">Voltar</a>
+                    <button class="btn btn-primary d-grid gap-2 col-3 mx-auto" type="submit">Atualizar</button>
+                </div>
             </form>
         </div>
     </div>
