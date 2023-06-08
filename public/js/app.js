@@ -61,6 +61,40 @@ $(document).ready(function () {
         }
     });
 
+    $('.data_nacimento').on('blur', function () {
+      var dataNascimento = $(this).val();
+      if (dataNascimento.length === 10) {
+        if (validarDataNascimento(dataNascimento)) {
+          $(this).removeClass('invalid');
+          $('.message-data-nascimento').text('Data de nascimento válida!');
+          $('.message-data-nascimento').css('color', 'green');
+        } else {
+          $(this).addClass('invalid');
+          $('.message-data-nascimento').text('Data de nascimento inválida!');
+          $('.message-data-nascimento').css('color', 'red');
+        }
+      }
+    });
+
+    $('.confirm-password').on('input', function () {
+        var senha = $('.password').val();
+        var confirmarSenha = $(this).val();
+        if (senha.length > 0 && confirmarSenha.length > 0) {
+            if (validarSenha(senha, confirmarSenha)) {
+                $(this).removeClass('invalid');
+                $('.message-password').text('Senhas conferem!');
+                $('.message-password').css('color', 'green');
+            } else {
+                $(this).addClass('invalid');
+                $('.message-password').text('Senhas não conferem!');
+                $('.message-password').css('color', 'red');
+            }
+        } else {
+            $(this).removeClass('invalid');
+            $('.message-password').text('');
+        }
+    });
+
     $('form').on('submit', function (event) {
 
         if ($('.cep').length > 0) {
@@ -86,6 +120,24 @@ $(document).ready(function () {
             }
         }
 
+        if ($('.data-nacimento').length > 0) {
+          var dataNascimento = $('.data-nacimento').val();
+          if (!validarDataNascimento(dataNascimento)) {
+            event.preventDefault(); // Impede o envio do formulário
+            alert('Data de nascimento inválida!');
+            return false;
+          }
+        }
+
+        if (($('.password').length > 0) && ($('.confirm-password').length > 0)) {
+            var senha = $('.password').val();
+            var confirmarSenha = $('.confirm-password').val();
+            if (!validarSenha(senha, confirmarSenha)) {
+                event.preventDefault(); // Impede o envio do formulário
+                alert('Senhas não conferem!');
+                return false;
+            }
+        }
 
         if ($('input').hasClass('invalid')) {
             event.preventDefault();
@@ -137,5 +189,40 @@ $(document).ready(function () {
         });
 
         return existe;
+    }
+
+    function validarDataNascimento(dataNascimento) {
+      var dataAtual = new Date();
+      var dataLimite = new Date();
+      dataLimite.setFullYear(dataAtual.getFullYear() - 100); // Subtrai 100 anos da data atual
+    
+      // Converte a data de nascimento para um objeto Date
+      var partesData = dataNascimento.split('-');
+      var data = new Date(partesData[0], partesData[1] - 1, partesData[2]);
+    
+      // Verifica se a data selecionada não é o dia atual
+      if (data.toDateString() === dataAtual.toDateString()) {
+        return false;
+      }
+    
+      // Verifica se a data está dentro do limite de 100 anos atrás
+      if (data < dataLimite) {
+        return false;
+      }
+    
+      // Verifica se a data está no máximo até o ano atual
+      if (data.getFullYear() > dataAtual.getFullYear()) {
+        return false;
+      }
+    
+      return true;
+    }
+    
+    function validarSenha(senha, confirmarSenha) {
+        if (senha !== confirmarSenha) {
+            return false;
+        }
+
+        return true;
     }
 });

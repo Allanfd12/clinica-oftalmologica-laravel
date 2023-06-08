@@ -21,8 +21,8 @@
             <table class="table table-hover text-center align-middle table-sm">
                 <thead class="table-light">
                     <tr>
-                        <th scope="col">ID</th>
                         <th scope="col">Paciente</th>
+                        <th scope="col">CPF</th>
                         <th scope="col">Última Alteração</th>
                         <th scope="col">Ações</th>
                     </tr>
@@ -30,8 +30,8 @@
                 <tbody>
                     @foreach($prontuarios as $prontuario)
                 <tr>
-                    <th scope="row">{{$prontuario->id}}</th>
                     <td>{{$prontuario->nome}}</td>
+                    <td>{{$prontuario->paciente->pessoa->cpf}}</td>
                     <td>{{$prontuario->updated_at_formatted}}</td>
                     <td>
                         <a href="{{ route('prontuarios.editar', $prontuario -> id) }}" class="link-secondary"><span class="material-symbols-outlined fs-4">edit_square</span></a>

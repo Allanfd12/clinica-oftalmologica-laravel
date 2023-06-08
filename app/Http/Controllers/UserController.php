@@ -23,9 +23,15 @@ class UserController extends Controller
             ->select('u.*', 'p.nome')
             ->where('p.nome', 'like', "%{$search}%")
             ->orWhere('u.email', 'like', "%{$search}%")
+            ->orderBy('p.nome')
             ->paginate(10)->withQueryString();
 
-        // dd($users  );
+            foreach ($users as $user) {
+                $cpf = preg_replace('/[^0-9]/', '', $user->pessoa->cpf);
+                $cpf_formatado = substr($cpf, 0, 3).'.'.substr($cpf, 3, 3).'.'.substr($cpf, 6, 3).'-'.substr($cpf, 9);
+                $user->pessoa->cpf_formatted = $cpf_formatado;
+            }
+            
 
         return view('usuarios.list', ['usuarios' => $users, 'search' => $search]);
     }

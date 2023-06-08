@@ -26,7 +26,8 @@
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="data_nacimento" class="form-label">Data de Nascimento</label>
-                        <input type="date" class="form-control" name="data_nacimento" min="1900-01-01" max="{{date('Y-m-d')}}" required value="{{ $paciente->pessoa->data_nacimento }}">
+                        <input type="date" class="form-control data_nacimento" name="data_nacimento" min="1900-01-01" max="{{date('Y-m-d')}}" required value="{{ $paciente->pessoa->data_nacimento }}">
+                        <div class="message-data-nascimento"></div>
                     </div>
                 </div>
                 <div class="row">
@@ -52,6 +53,7 @@
                     <div class="col-md-4 mb-3">
                         <label for="cep" class="form-label">CEP</label>
                         <input type="text" class="form-control" name="cep" required value="{{ $paciente->pessoa->endereco->cep }}">
+                        <div class="message-cep"></div>
                     </div>
                 </div>
                 <div class="row">
