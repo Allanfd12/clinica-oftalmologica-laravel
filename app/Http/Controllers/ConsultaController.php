@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreConsultaRequest;
 use App\Models\Paciente;
 use App\Http\Requests\StorePacienteRequest;
+use App\Http\Requests\UpdateConsultaRequest;
 use App\Http\Requests\UpdatePacienteRequest;
 use App\Models\Consulta;
 use App\Models\Pessoa;
@@ -114,39 +115,22 @@ class ConsultaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    // public function update(UpdatePacienteRequest $request, $id)
-    // {
+    public function update(UpdateConsultaRequest $request, $id)
+    {
+        DB::beginTransaction();
+
+        $consulta = Consulta::findOrFail($id);
+        $consulta->paciente_id = $request->paciente_id;
+        $consulta->medico_id = $request->medico_id;
+        $consulta->data_consulta = $request->data_consulta;
+        $consulta->hora_consulta = $request->hora_consulta;
+        $consulta->save();
+
+        DB::commit();
         
-    //     DB::beginTransaction();
+        return redirect()->route('consultas.list');
 
-    //     $paciente = Paciente::with(['pessoa', 'pessoa.endereco'])->findOrFail($id);
-
-    //     $endereco = $paciente->pessoa->endereco;
-
-    //     $endereco->rua = $request->rua;
-    //     $endereco->numero = $request->numero;
-    //     $endereco->bairro = $request->bairro;
-    //     $endereco->cidade = $request->cidade;
-    //     $endereco->estado = $request->estado;
-    //     $endereco->cep = $request->cep;
-    //     $endereco->complemento = $request->complemento;
-    //     $endereco->save();
-
-    //     $pessoa = $paciente->pessoa;
-
-    //     $pessoa->nome = $request->nome;
-    //     $pessoa->cpf = preg_replace('/[^0-9]/', '', $request->cpf);
-    //     $pessoa->data_nacimento = Carbon::parse($request->data_nacimento)->format('Y-m-d');
-    //     $pessoa->email = $request->email;
-    //     $pessoa->telefone = $request->telefone;
-    //     $pessoa->save();
-    //     $paciente->save();
-
-    //     DB::commit();
-
-    //     return redirect()->route('pacientes.list');
-
-    // }
+    }
 
     /**
      * Remove the specified resource from storage.
