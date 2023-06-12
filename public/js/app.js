@@ -103,7 +103,7 @@ $(document).ready(function () {
 
         if ($('.cep').length > 0) {
             var cep = $('.cep').val().replace(/\D/g, '');
-            if (cep.length !== 8 || cepInput.hasClass('invalid-cep')) {
+            if (cep.length !== 8 || $('.cep').hasClass('invalid-cep')) {
                 event.preventDefault(); // Impede o envio do formulário
                 alert('CEP inválido!');
                 return false;
