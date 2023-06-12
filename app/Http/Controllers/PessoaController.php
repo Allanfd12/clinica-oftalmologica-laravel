@@ -23,9 +23,9 @@ class PessoaController extends Controller
         $cpf = preg_replace('/[^0-9]/', '', $cpf);
         $pessoa = Pessoa::where('cpf', $cpf)->first();
         if ($pessoa) {
-            return response()->json(['cpf' => true]);
+            return response()->json(['cpf' => true,'id' => $pessoa['id']]);
         } else {
-            return response()->json(['cpf' => false]);
+            return response()->json(['cpf' => false,'id' => null]);
         }
     }
 }

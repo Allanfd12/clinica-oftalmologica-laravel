@@ -33,6 +33,7 @@
                     <div class="col-md-4 mb-4">
                         <label for="cpf" class="form-label">CPF</label>
                         <input type="text" class="form-control cpf" name="cpf" required pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" value="{{ $medico->user->pessoa->cpf }}">
+                        <input type="hidden" class="form-control idPessoa" name="id" value="{{ $medico->user->pessoa->id }}">
                         <div class="message-cpf"></div>
                     </div>
                     <div class="col-md-4 mb-4">

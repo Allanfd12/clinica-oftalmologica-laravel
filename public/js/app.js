@@ -7,7 +7,11 @@ $(document).ready(function () {
         if (cpf.length === 14) {
             if (validarCPF(cpf)) {
                 $(this).removeClass('invalid');
-                if (cpfExiste(cpf)) {
+                var idPessoa = 0;
+                if($('.idPessoa').length > 0){
+                    idPessoa = $('.idPessoa').val();
+                }
+                if (cpfExiste(cpf,idPessoa)) {
                     $('.message-cpf').text('CPF já cadastrado!');
                     $('.message-cpf').css('color', 'red');
                     $(this).addClass('invalid');
@@ -99,7 +103,7 @@ $(document).ready(function () {
 
         if ($('.cep').length > 0) {
             var cep = $('.cep').val().replace(/\D/g, '');
-            if (cep.length !== 8 || cepInput.hasClass('invalid-cep')) {
+            if (cep.length !== 8 || $('.cep').hasClass('invalid-cep')) {
                 event.preventDefault(); // Impede o envio do formulário
                 alert('CEP inválido!');
                 return false;
@@ -113,7 +117,12 @@ $(document).ready(function () {
                 alert('CPF inválido!');
                 return false;
             }
-            if (cpfExiste(cpf)) {
+
+            var idPessoa = 0;
+            if($('.idPessoa').length > 0){
+                idPessoa = $('.idPessoa').val();
+            }
+            if (cpfExiste(cpf, idPessoa)) {
                 event.preventDefault(); // Impede o envio do formulário
                 alert('CPF já cadastrado!');
                 return false;
@@ -177,47 +186,52 @@ $(document).ready(function () {
         return true;
     }
 
-    function cpfExiste(cpf) {
+
+
+    function cpfExiste(cpf,id) {
         var existe = false;
+        var idPessoa = 0;
         $.ajax({
             url: '/api/cpf?cpf=' + cpf.replace(/\D/g, ''),
             async: false,
             dataType: 'json',
             success: function (data) {
                 existe = data.cpf;
+                idPessoa = data.id;
             }
         });
-
+        if(idPessoa == id){
+            return false;
+        }
         return existe;
     }
-
     function validarDataNascimento(dataNascimento) {
       var dataAtual = new Date();
       var dataLimite = new Date();
       dataLimite.setFullYear(dataAtual.getFullYear() - 100); // Subtrai 100 anos da data atual
-    
+
       // Converte a data de nascimento para um objeto Date
       var partesData = dataNascimento.split('-');
       var data = new Date(partesData[0], partesData[1] - 1, partesData[2]);
-    
+
       // Verifica se a data selecionada não é o dia atual
       if (data.toDateString() === dataAtual.toDateString()) {
         return false;
       }
-    
+
       // Verifica se a data está dentro do limite de 100 anos atrás
       if (data < dataLimite) {
         return false;
       }
-    
+
       // Verifica se a data está no máximo até o ano atual
       if (data.getFullYear() > dataAtual.getFullYear()) {
         return false;
       }
-    
+
       return true;
     }
-    
+
     function validarSenha(senha, confirmarSenha) {
         if (senha !== confirmarSenha) {
             return false;
