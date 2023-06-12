@@ -47,7 +47,7 @@
                                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                        <p>Tem certeza que deseja excluir o usuário {{$paciente->nome}} ?</p>
+                                        <p>Tem certeza que deseja excluir o paciente {{$paciente->nome}} ?</p>
                                 </div>
                                 <div class="modal-footer">
                                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
