@@ -19,13 +19,13 @@
                 @csrf
                 <div class="row">
                 <div class="col-md-4 mb-4" >
-                        <label for="nome" class="form-label">Médico</label>
+                        <label for="nome" class="form-label required">Médico</label>
                         <select id="ajaxselectMedico" class="js-states form-control" required>
                         </select>
                         <input type="hidden" id="medico_id" name="medico_id" value="">
                     </div>
                     <div class="col-md-4 mb-4" >
-                        <label for="nome" class="form-label">Paciente</label>
+                        <label for="nome" class="form-label required">Paciente</label>
                         <select id="ajaxselectPaciente" class="js-states form-control" required>
                         </select>
                         <input type="hidden" id="paciente_id" name="paciente_id" value="">
@@ -34,11 +34,11 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4 mb-4" >
-                        <label for="nome" class="form-label">Data da consulta</label>
+                        <label for="nome" class="form-label required">Data da consulta</label>
                         <input type="date" class="form-control" name="data_consulta" required >
                     </div>
                     <div class="col-md-4 mb-4" >
-                        <label for="nome" class="form-label">Hora da consulta</label>
+                        <label for="nome" class="form-label required">Hora da consulta</label>
                         <input type="time" class="form-control" name="hora_consulta" required >
                     </div>
                 </div>

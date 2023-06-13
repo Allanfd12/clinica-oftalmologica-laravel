@@ -59,3 +59,8 @@ hr.h-color {
 .invalid {
     border-color: red !important;
 }
+
+.required:after {
+    content:" *"; 
+    color: red;
+  }

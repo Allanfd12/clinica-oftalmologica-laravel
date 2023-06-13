@@ -20,36 +20,36 @@
                 @csrf
                 <div class="row">
                     <div class="col-md-4 mb-4" >
-                        <label for="name" class="form-label">Paciente</label>
+                        <label for="name" class="form-label required">Paciente</label>
                         <select id="ajaxselect" class="js-states form-control" required>
                         </select>
                         <input type="hidden" id="paciente_id" name="paciente_id" value="">
                     </div>
 
                     <div class="col-md-4 mb-4">
-                        <label for="grau" class="form-label">Grau</label>
+                        <label for="grau" class="form-label required">Grau</label>
                         <input type="text" class="form-control" name="grau" required>
                     </div>
 
                     <div class="col-md-4 mb-4">
-                        <label for="biomicoscopia" class="form-label">Biomicoscopia</label>
+                        <label for="biomicoscopia" class="form-label required">Biomicoscopia</label>
                         <input type="text" class="form-control" name="biomicoscopia" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4 mb-4">
-                        <label for="qp" class="form-label">Queixa Principal</label>
+                        <label for="qp" class="form-label required">Queixa Principal</label>
                         <input type="text" class="form-control" name="qp" required>
                     </div>
 
                     <div class="col-md-4 mb-4">
-                        <label for="conduta" class="form-label">Conduta</label>
+                        <label for="conduta" class="form-label required">Conduta</label>
                         <input type="text" class="form-control" name="conduta" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4 mb-4">
-                        <label for="descricao" class="form-label">Descrição</label>
+                        <label for="descricao" class="form-label required">Descrição</label>
                         <textarea type="text" class="form-control" name="descricao" rows="5" required></textarea>
                     </div>
                 </div>

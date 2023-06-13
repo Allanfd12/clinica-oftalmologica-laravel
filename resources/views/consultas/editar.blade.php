@@ -20,7 +20,7 @@
                 @method('patch')
                 <div class="row">
                 <div class="col-md-4 mb-4" >
-                        <label for="medico" class="form-label">Médico</label>
+                        <label for="medico" class="form-label required">Médico</label>
                         <select id="ajaxselectMedico" class="js-states form-control" required>
                             <option selected>{{ $consulta->medico->user->pessoa->nome }}</option>
                         </select>
@@ -28,7 +28,7 @@
                     </div>
 
                     <div class="col-md-4 mb-4" >
-                        <label for="paciente" class="form-label">Paciente</label>
+                        <label for="paciente" class="form-label required">Paciente</label>
                         <select id="ajaxselectPaciente" class="js-states form-control" required>
                             <option selected>{{ $consulta->paciente->pessoa->nome }}</option>
                         </select>
@@ -37,11 +37,11 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4 mb-4" >
-                        <label for="data_consulta" class="form-label">Data da consulta</label>
+                        <label for="data_consulta" class="form-label required">Data da consulta</label>
                         <input type="date" class="form-control" name="data_consulta" required value="{{ $consulta->data_consulta }}">
                     </div>
                     <div class="col-md-4 mb-4" >
-                        <label for="hora_consulta" class="form-label">Hora da consulta</label>
+                        <label for="hora_consulta" class="form-label required">Hora da consulta</label>
                         <input type="time" class="form-control" name="hora_consulta" required value="{{ $consulta->hora_consulta }}">
                     </div>
                 </div>

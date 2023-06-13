@@ -16,28 +16,28 @@
                 @method('PATCH')
                 <div class="row">
                     <div class="col-md-4 mb-4" >
-                        <label for="name" class="form-label">Nome</label>
+                        <label for="name" class="form-label required">Nome</label>
                         <input type="text" class="form-control" name="nome" maxlength="255" required value="{{ $user->pessoa->nome }}">
                     </div>
                     <div class="col-md-4 mb-4">
-                        <label for="cpf" class="form-label">CPF</label>
+                        <label for="cpf" class="form-label required">CPF</label>
                         <input type="text" class="form-control cpf" name="cpf" required pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" value="{{ $user->pessoa->cpf }}">
                         <input type="hidden" class="form-control idPessoa" name="id" value="{{ $user->pessoa->id }}">
                         <div class="message-cpf"></div>
                     </div>
                     <div class="col-md-4 mb-4">
-                        <label for="data_nacimento" class="form-label">Data de Nascimento</label>
+                        <label for="data_nacimento" class="form-label required">Data de Nascimento</label>
                         <input type="date" class="form-control data_nacimento" name="data_nacimento" min="1900-01-01" max="{{date('Y-m-d')}}" required value="{{ \Carbon\Carbon::parse($user->pessoa->data_nacimento)->format('Y-m-d') }}">
                         <div class="message-data-nascimento"></div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4 mb-4">
-                        <label for="email" class="form-label">E-mail</label>
+                        <label for="email" class="form-label required">E-mail</label>
                         <input type="email" class="form-control email" name="email" required value="{{ $user->pessoa->email }}">
                     </div>
                     <div class="col-md-4 mb-4">
-                        <label for="telefone" class="form-label">Telefone</label>
+                        <label for="telefone" class="form-label required">Telefone</label>
                         <input type="tel" class="form-control telefone" name="telefone" required value="{{ $user->pessoa->telefone }}">
                     </div>
                 </div>

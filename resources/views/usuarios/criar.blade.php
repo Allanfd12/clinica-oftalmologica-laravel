@@ -15,37 +15,37 @@
                 @csrf
                 <div class="row">
                     <div class="col-md-4 mb-4" >
-                        <label for="name" class="form-label">Nome</label>
+                        <label for="name" class="form-label required">Nome</label>
                         <input type="text" class="form-control" name="nome" maxlength="255" required >
                     </div>
                     <div class="col-md-4 mb-4">
-                        <label for="cpf" class="form-label">CPF</label>
+                        <label for="cpf" class="form-label required">CPF</label>
                         <input type="text" class="form-control cpf" name="cpf" required pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" >
                         <div class="message-cpf"></div>
                     </div>
                     <div class="col-md-4 mb-4">
-                        <label for="data_nacimento" class="form-label">Data de Nascimento</label>
+                        <label for="data_nacimento" class="form-label required">Data de Nascimento</label>
                         <input type="date" class="form-control data_nacimento" name="data_nacimento" required>
                         <div class="message-data-nascimento"></div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4 mb-4">
-                        <label for="email" class="form-label">E-mail</label>
+                        <label for="email" class="form-label required">E-mail</label>
                         <input type="email" class="form-control email" name="email" required>
                     </div>
                     <div class="col-md-4 mb-4">
-                        <label for="telefone" class="form-label">Telefone</label>
+                        <label for="telefone" class="form-label required">Telefone</label>
                         <input type="tel" class="form-control telefone" name="telefone" required >
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4 mb-4">
-                        <label for="password" class="form-label">Senha</label>
+                        <label for="password" class="form-label required">Senha</label>
                         <input type="password" class="form-control password" name="password" required>
                     </div>
                     <div class="col-md-4 mb-4">
-                        <label for="password" class="form-label">Confirmar Senha</label>
+                        <label for="password" class="form-label required">Confirmar Senha</label>
                         <input type="text" class="form-control confirm-password" name="confirm-password" required>
                         <div class="message-password"></div>
                     </div>
