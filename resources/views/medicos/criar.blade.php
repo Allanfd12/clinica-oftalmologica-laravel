@@ -25,7 +25,7 @@
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="cpf" class="form-label">CRM</label>
-                        <input type="text" class="form-control" name="crm" required/>
+                        <input type="text" class="form-control" name="crm" maxlength="20" required/>
                     </div>
 
                 </div>
@@ -91,12 +91,13 @@
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center mt-2 mb-3 border-bottom"></div>
                 <div class="row">
                     <div class="col-md-4 mb-4">
-                        <label for="complemento" class="form-label">Senha</label>
+                        <label for="password" class="form-label">Senha</label>
                         <input type="password" class="form-control password" name="password" required/>
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="complemento" class="form-label">Confirmar Senha</label>
-                        <input type="password" class="form-control confirm-password" name="confirm-password" required/>
+                        <input type="confirm-password" class="form-control confirm-password" name="confirm-password" required/>
+                        <div class="message-password"></div>
                     </div>
                 </div>
                 <div class="d-flex justify-content-between">

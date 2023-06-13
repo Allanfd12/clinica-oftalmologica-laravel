@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->date('data_consulta');
             $table->time('hora_consulta');
-            $table->foreignId('medico_id')->constrained('medicos');
-            $table->foreignId('paciente_id')->constrained('pacientes');
+            $table->foreignId('medico_id')->constrained('medicos')->onDelete('cascade');
+            $table->foreignId('paciente_id')->constrained('pacientes')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -53,7 +53,7 @@
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="cep" class="form-label">CEP</label>
-                        <input type="text" class="form-control" name="cep" required value="{{ $paciente->pessoa->endereco->cep }}">
+                        <input type="text" class="form-control cep invalid-cep" name="cep" required value="{{ $paciente->pessoa->endereco->cep }}">
                         <div class="message-cep"></div>
                     </div>
                 </div>

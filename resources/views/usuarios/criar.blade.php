@@ -42,7 +42,7 @@
                 <div class="row">
                     <div class="col-md-4 mb-4">
                         <label for="password" class="form-label">Senha</label>
-                        <input type="text" class="form-control password" name="password" required>
+                        <input type="password" class="form-control password" name="password" required>
                     </div>
                     <div class="col-md-4 mb-4">
                         <label for="password" class="form-label">Confirmar Senha</label>

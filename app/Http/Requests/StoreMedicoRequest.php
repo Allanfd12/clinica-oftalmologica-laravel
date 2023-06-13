@@ -23,9 +23,7 @@ class StoreMedicoRequest extends FormRequest
     {
  
         return [
-                'password' => 'required|min:1|confirmed',
-
-            //
+                'password' => 'required|min:1',
         ];
     }
 }

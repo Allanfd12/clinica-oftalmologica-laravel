@@ -21,7 +21,7 @@
                 <div class="row">
                 <div class="col-md-4 mb-4" >
                         <label for="medico" class="form-label">Médico</label>
-                        <select id="ajaxselectMedico" class="js-states form-control">
+                        <select id="ajaxselectMedico" class="js-states form-control" required>
                             <option selected>{{ $consulta->medico->user->pessoa->nome }}</option>
                         </select>
                         <input type="hidden" id="medico_id" name="medico_id" value="{{ $consulta->medico_id }}">
@@ -29,7 +29,7 @@
 
                     <div class="col-md-4 mb-4" >
                         <label for="paciente" class="form-label">Paciente</label>
-                        <select id="ajaxselectPaciente" class="js-states form-control">
+                        <select id="ajaxselectPaciente" class="js-states form-control" required>
                             <option selected>{{ $consulta->paciente->pessoa->nome }}</option>
                         </select>
                         <input type="hidden" id="paciente_id" name="paciente_id" value="{{ $consulta->paciente_id }}">

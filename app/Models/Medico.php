@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Medico extends Model
 {
     use HasFactory;
+    use SoftDeletes;
     public function user()
     {
         return $this->belongsTo(User::class, 'users_id');
@@ -18,5 +19,5 @@ class Medico extends Model
         return $this->belongsTo(Pessoa::class);
     }
 
-    use SoftDeletes;
+    protected $dates = ['deleted_at'];
 }

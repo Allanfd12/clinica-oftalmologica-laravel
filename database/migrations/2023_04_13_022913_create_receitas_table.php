@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('receitas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('paciente_id')->constrained('pacientes');
-            $table->foreignId('medico_id')->constrained('medicos');
+            $table->foreignId('paciente_id')->constrained('pacientes')->onDelete('cascade');
+            $table->foreignId('medico_id')->constrained('medicos')->onDelete('cascade');
             $table->string('observacao');            
             $table->date('data');
             $table->time('hora');

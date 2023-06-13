@@ -92,11 +92,11 @@
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center mt-2 mb-3 border-bottom"></div>
                 <div class="row">
                     <div class="col-md-4 mb-4">
-                        <label for="complemento" class="form-label">Senha</label>
-                        <input type="password" class="form-control" required name="password" />
+                        <label for="password" class="form-label">Senha</label>
+                        <input type="password" class="form-control" name="password" />
                     </div>
                     <div class="col-md-4 mb-4">
-                        <label for="complemento" class="form-label">Confirmar Senha</label>
+                        <label for="confirm-password" class="form-label">Confirmar Senha</label>
                         <input type="password" class="form-control confirm-password" name="confirm-password" />
                     </div>
                 </div>

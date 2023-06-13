@@ -21,9 +21,9 @@
                 <div class="row">
                     <div class="col-md-4 mb-4" >
                         <label for="name" class="form-label">Paciente</label>
-                        <select id="ajaxselect" class="js-states form-control">
+                        <select id="ajaxselect" class="js-states form-control" required>
                         </select>
-                        <input type="hidden" id="paciente_id" name="paciente_id" value="" required>
+                        <input type="hidden" id="paciente_id" name="paciente_id" value="">
                     </div>
 
                     <div class="col-md-4 mb-4">
